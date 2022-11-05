@@ -1,0 +1,44 @@
+.footer {
+  display: flex;
+  justify-content:space-evenly;
+  background-color: #303133;
+  height: 60vh;
+}
+
+.footer div {
+  margin-top: 3rem;
+}
+
+.footer .itemsFooter {
+  margin-top: 6rem;
+  
+}
+
+.itemsFooter li {
+  color: azure;
+  list-style: none;
+  font-size: 24px;
+  text-align: center;
+}
+
+.itemsFooter li ul {
+  margin: 20px;
+}
+
+.logoOrange img {
+  margin-top: 17rem;
+  margin-left: 18rem;
+  width: 38vh;
+}
+
+.localizations {
+  color: azure;
+  list-style: none;
+  font-size: 22px;
+  text-align: center;
+  max-width: 14rem;
+}
+
+.localizations li {
+  margin: 15px;
+}

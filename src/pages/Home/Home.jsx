@@ -1,3 +1,4 @@
+import Footer from "../../components/Footer/Footer";
 import "./styles.css";
 
 function Home() {
@@ -30,7 +31,7 @@ function Home() {
         </div>
       </div>
       <div className="examplesTrails">Exemplo de Trilhas</div>
-      <div className="footer">Footer</div>
+      <Footer />
     </>
   );
 }
