@@ -1,0 +1,28 @@
+*{
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+.apresentation {
+  background-image: url(https://d335luupugsy2.cloudfront.net/cms/files/107693/1655132576/$jp1dmh18t9g);
+  background-size: initial;
+  border-bottom: none;
+  width: 100%;
+  height: 80vh;
+}
+
+.navBar {
+  display: flex;
+  justify-content:space-between;
+  background-color: black;
+  color: azure;
+  width: 100%;
+  height: 35px;
+}
+
+.navBar img {
+  height: 100%;
+  vertical-align: middle;
+  margin-left: 200px;
+}
