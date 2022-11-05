@@ -25,20 +25,14 @@
   margin: 20px;
 }
 
-.logoOrange img {
-  margin-top: 17rem;
-  margin-left: 18rem;
-  width: 38vh;
-}
-
 .localizations {
   color: azure;
   list-style: none;
-  font-size: 22px;
+  font-size: 20px;
   text-align: center;
-  max-width: 14rem;
+  max-width: 15rem;
 }
 
-.localizations li {
-  margin: 15px;
+.localizations ul {
+  padding: 0;
 }
