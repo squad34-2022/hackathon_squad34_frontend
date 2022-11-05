@@ -1,8 +1,8 @@
-*{
+/* *{
   padding: 0;
   margin: 0;
   border: 0;
-}
+} */
 
 .apresentation {
   display: flex;
@@ -10,18 +10,18 @@
   background-image: linear-gradient(to top, transparent 85%, black), url(https://d335luupugsy2.cloudfront.net/cms/files/107693/1655132576/$jp1dmh18t9g);
   background-size: initial;
   border-bottom: none;
-  width: 100%;
+  width: 99.76vw;
   height: 85vh;
   background-attachment: fixed;
 }
 
-.navBar {
+/* .navBar {
   display: flex;
   position: fixed;
   justify-content:space-between;
   background-color: black;
   color: azure;
-  width: 99vw;
+  width: 99.7vw;
   height: 2.2rem;
   padding: 0.5rem;
 }
@@ -37,10 +37,31 @@
   align-items: center;
   margin-right: 10rem;
   gap: 5rem;
-}
+} */
 
 .examplesTrails {
   background-image: linear-gradient(45deg, rgb(2, 255, 171), rgb(117, 32, 253));
   height: 90vh;
   font-size: 36px;
+}
+
+.logoOrange img {
+  margin-top: 15rem;
+  margin-left: 18rem;
+  width: 38vh;
+}
+
+.textApresentation {
+  margin-top: 14rem;
+  margin-right: 16rem;
+  width: 70vh;
+}
+
+.textApresentation h1 {
+  color: #ff5a23;
+  padding: 3rem;
+}
+
+.textApresentation h3 {
+  color: white;
 }
