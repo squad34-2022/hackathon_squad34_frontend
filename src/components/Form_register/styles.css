@@ -17,7 +17,7 @@ form {
     #ff8700 65.63%,
     #fbb800 100%
   );
-  background-clip: text;
+  -webkit-background-clip: text;
   color: transparent;
   font-weight: 700;
   font-size: 4.5rem;
