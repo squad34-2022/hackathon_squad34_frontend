@@ -32,31 +32,35 @@ function Home() {
           </h3>
         </Col>
       </Row>
-      {/* <CardGroup className="examplesTrails">
-        <Card>
+      <CardGroup>
+        <Card className="examplesTrails">
           <Card.Img
             variant="top"
             src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$mip3cw6frz9"
           />
           <Card.Body>
-            <Card.Text>Desenvolvimento Full Stack</Card.Text>
-          </Card.Body>
-          <Card.Img
-            variant="top"
-            src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$mip3cw6frz9"
-          />
-          <Card.Body>
-            <Card.Text>Desenvolvimento Full Stack</Card.Text>
-          </Card.Body>
-          <Card.Img
-            variant="top"
-            src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$mip3cw6frz9"
-          />
-          <Card.Body>
-            <Card.Text>Desenvolvimento Full Stack</Card.Text>
+            <Card.Title>Card title</Card.Title>
           </Card.Body>
         </Card>
-      </CardGroup> */}
+        <Card className="examplesTrails">
+          <Card.Img
+            variant="top"
+            src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$orvl84rg8a"
+          />
+          <Card.Body>
+            <Card.Title>Card title</Card.Title>
+          </Card.Body>
+        </Card>
+        <Card className="examplesTrails">
+          <Card.Img
+            variant="top"
+            src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$4nai9gbaeha"
+          />
+          <Card.Body>
+            <Card.Title>Card title</Card.Title>
+          </Card.Body>
+        </Card>
+      </CardGroup>
       <Footer />
     </>
   );
