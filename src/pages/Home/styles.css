@@ -39,10 +39,36 @@
   gap: 5rem;
 } */
 
-.examplesTrails {
+.containerCards {
   background-image: linear-gradient(45deg, rgb(2, 255, 171), rgb(117, 32, 253));
-  height: 90vh;
+  height: 70vh;
+  padding: 0 12rem 0 12rem;
+}
+
+.card-group {
+  height: 50%;
+}
+
+.examplesTrails {
+  background: transparent;
   font-size: 36px;
+}
+
+.card {
+  height: 100%;
+  padding-top: 15rem;
+  justify-content: center;
+  align-items: center;
+  border: none;
+}
+
+.cardImage {
+  width: 14rem;
+}
+
+.card-title {
+  color: white;
+  font-size: 30px;
 }
 
 .logoOrange img {
