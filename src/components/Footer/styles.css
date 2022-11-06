@@ -9,6 +9,7 @@
 
 .footer-container {
   margin-top: 3rem;
+  flex-wrap: nowrap;
 }
 
 .items-footer {
