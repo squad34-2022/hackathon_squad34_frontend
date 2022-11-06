@@ -3,15 +3,16 @@
   justify-content:space-evenly;
   background-color: #303133;
   height: 60vh;
+  width: 100%;
+  margin: 0
 }
 
-.footer div {
+.footer-container {
   margin-top: 3rem;
 }
 
-.footer .items-footer {
+.items-footer {
   margin-top: 6rem;
-  
 }
 
 .items-footer li {
