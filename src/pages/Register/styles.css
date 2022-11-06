@@ -1,0 +1,5 @@
+.image-background {
+  max-height: 100vh;
+  width: 100%;
+  object-fit: fill;
+}
