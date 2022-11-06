@@ -18,13 +18,13 @@ function Home() {
         </Container>
       </Navbar>
       <Row className="apresentation">
-        <Col className="logoOrange">
+        <Col className="logo-orange">
           <img
             src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1639661491/$s20z34nynz"
             alt="Logo Orange"
           />
         </Col>
-        <Col className="textApresentation">
+        <Col className="text-apresentation">
           <h1>A comunidade tech mais vitaminada!</h1>
           <h3>
             Conecte-se com pessoas com os mesmos interesses que você enquanto
@@ -32,11 +32,11 @@ function Home() {
           </h3>
         </Col>
       </Row>
-      <div className="containerCards">
+      <div className="container-cards">
         <CardGroup>
-          <Card className="examplesTrails">
+          <Card className="examples-trails">
             <Card.Img
-              className="cardImage"
+              className="card-image"
               variant="top"
               src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$mip3cw6frz9"
             />
@@ -44,9 +44,9 @@ function Home() {
               <Card.Title>Desenvolvimento Full Stack</Card.Title>
             </Card.Body>
           </Card>
-          <Card className="examplesTrails">
+          <Card className="examples-trails">
             <Card.Img
-              className="cardImage"
+              className="card-image"
               variant="top"
               src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$orvl84rg8a"
             />
@@ -54,9 +54,9 @@ function Home() {
               <Card.Title>UX/UI Designer</Card.Title>
             </Card.Body>
           </Card>
-          <Card className="examplesTrails">
+          <Card className="examples-trails">
             <Card.Img
-              className="cardImage"
+              className="card-image"
               variant="top"
               src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$4nai9gbaeha"
             />
@@ -85,26 +85,4 @@ export default Home;
           <ul>Login</ul>
         </li>
       </div> */
-}
-
-{
-  /* <div className="apresentation">
-        <div className="logoOrange">
-          <img
-            src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1639661491/$s20z34nynz"
-            alt=""
-          />
-        </div>
-        <div className="textApresentation">
-          <h1>A comunidade tech mais vitaminada!</h1>
-          <h3>
-            Conecte-se com pessoas com os mesmos interesses que você enquanto
-            aprende sobre as maiores tendências do mundo da tecnologia 🍊
-          </h3>
-        </div>
-      </div> */
-}
-
-{
-  /* <div className="examplesTrails">Exemplo de Trilhas</div> */
 }

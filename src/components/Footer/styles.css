@@ -9,19 +9,19 @@
   margin-top: 3rem;
 }
 
-.footer .itemsFooter {
+.footer .items-footer {
   margin-top: 6rem;
   
 }
 
-.itemsFooter li {
+.items-footer li {
   color: azure;
   list-style: none;
   font-size: 24px;
   text-align: center;
 }
 
-.itemsFooter li ul {
+.items-footer li ul {
   margin: 20px;
 }
 

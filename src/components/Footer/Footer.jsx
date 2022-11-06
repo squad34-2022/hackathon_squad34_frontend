@@ -4,13 +4,13 @@ function Footer() {
   return (
     <>
       <div className="footer">
-        <div logoFooter>
+        <div>
           <img
             src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1654865437/$khtwl6dbna"
             alt=""
           />
         </div>
-        <div className="itemsFooter">
+        <div className="items-footer">
           <li>
             <ul>Home</ul>
             <ul>Trilhas</ul>
