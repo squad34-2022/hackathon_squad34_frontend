@@ -32,35 +32,40 @@ function Home() {
           </h3>
         </Col>
       </Row>
-      <CardGroup>
-        <Card className="examplesTrails">
-          <Card.Img
-            variant="top"
-            src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$mip3cw6frz9"
-          />
-          <Card.Body>
-            <Card.Title>Card title</Card.Title>
-          </Card.Body>
-        </Card>
-        <Card className="examplesTrails">
-          <Card.Img
-            variant="top"
-            src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$orvl84rg8a"
-          />
-          <Card.Body>
-            <Card.Title>Card title</Card.Title>
-          </Card.Body>
-        </Card>
-        <Card className="examplesTrails">
-          <Card.Img
-            variant="top"
-            src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$4nai9gbaeha"
-          />
-          <Card.Body>
-            <Card.Title>Card title</Card.Title>
-          </Card.Body>
-        </Card>
-      </CardGroup>
+      <div className="containerCards">
+        <CardGroup>
+          <Card className="examplesTrails">
+            <Card.Img
+              className="cardImage"
+              variant="top"
+              src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$mip3cw6frz9"
+            />
+            <Card.Body>
+              <Card.Title>Desenvolvimento Full Stack</Card.Title>
+            </Card.Body>
+          </Card>
+          <Card className="examplesTrails">
+            <Card.Img
+              className="cardImage"
+              variant="top"
+              src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$orvl84rg8a"
+            />
+            <Card.Body>
+              <Card.Title>UX/UI Designer</Card.Title>
+            </Card.Body>
+          </Card>
+          <Card className="examplesTrails">
+            <Card.Img
+              className="cardImage"
+              variant="top"
+              src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$4nai9gbaeha"
+            />
+            <Card.Body>
+              <Card.Title>Quality Assurance (QA)</Card.Title>
+            </Card.Body>
+          </Card>
+        </CardGroup>
+      </div>
       <Footer />
     </>
   );
