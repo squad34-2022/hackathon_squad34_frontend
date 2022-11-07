@@ -1,0 +1,13 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.welcome-container {
+  border: 2px solid black
+}
+
+.trails-progress {
+  border: 2px solid black;
+}
