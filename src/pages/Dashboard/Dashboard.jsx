@@ -14,7 +14,7 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   },
   [`& .${linearProgressClasses.bar}`]: {
     borderRadius: 5,
-    backgroundColor: theme.palette.mode === "light" ? "#1a90ff" : "#308fe8",
+    backgroundColor: theme.palette.mode === "light" ? "#FF5A23" : "#FF8A63",
   },
 }));
 
@@ -23,12 +23,12 @@ function Dashboard() {
     <div>
       <div className="welcome-container">
         <h1>Olá, José</h1>
-        <p>Veja seu progresso nas trilhas:</p>
+        <h5>Veja seu progresso nas trilhas:</h5>
       </div>
       <div className="progress-container">
         <div className="trails-progress">
           <div className="trail">
-            <h4>UX/UI Design</h4>
+            <h5>UX/UI Design</h5>
             <Box sx={{ flexGrow: 1 }}>
               <BorderLinearProgress
                 sx={{ width: 500 }}
@@ -38,7 +38,7 @@ function Dashboard() {
             </Box>
           </div>
           <div className="trail">
-            <h4>Desenvolvimento Full Stack</h4>
+            <h5>Desenvolvimento Full Stack</h5>
             <Box sx={{ flexGrow: 1 }}>
               <BorderLinearProgress
                 sx={{ width: 500 }}
@@ -48,7 +48,7 @@ function Dashboard() {
             </Box>
           </div>
           <div className="trail">
-            <h4>QA</h4>
+            <h5>QA</h5>
             <Box sx={{ flexGrow: 1 }}>
               <BorderLinearProgress
                 sx={{ width: 500 }}
@@ -59,7 +59,10 @@ function Dashboard() {
           </div>
         </div>
       </div>
-      <div></div>
+      <div className="comunity-container">
+        <h1>Comunidade</h1>
+        <h5>Conecte-se com outros membros:</h5>
+      </div>
     </div>
   );
 }
