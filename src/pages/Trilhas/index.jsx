@@ -26,9 +26,10 @@ export default function SpacingGrid() {
   return (
     <>
     <Navbar/>
+    <h1 className='especialText'>Nossas trilhas</h1>
     <Grid sx={{ flexGrow: 1 }} container spacing={2}>
       <Grid item xs={12}>
-        <Grid container justifyContent="center" spacing={spacing} my={16}>
+        <Grid container justifyContent="center" spacing={spacing} >
           {[0, 1, 2].map((value) => (
             <Grid key={value} item>
               {/* <Paper
