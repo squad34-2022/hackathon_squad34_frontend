@@ -1,7 +1,7 @@
 import { ThemeProvider } from "@mui/material";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar/navbar";
-import Course from "./pages/Courses/Courses";
+import Courses from "./pages/Courses/Courses";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Trilhas from "./pages/Trilhas/";
 import Home from "./pages/Home/Home";
@@ -16,7 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/cursos" element={<Course />} />
+          <Route path="/cursos" element={<Courses />} />
           <Route path="/cadastro" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/trilhas" element={<Trilhas />} />

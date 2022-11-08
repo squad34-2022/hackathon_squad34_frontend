@@ -1,14 +1,19 @@
 import {
   Accordion,
+  AccordionDetails,
   AccordionSummary,
   Box,
+  Checkbox,
+  Chip,
   Drawer,
+  Stack,
   Toolbar,
   Typography,
 } from "@mui/material";
 import Navbar from "../../components/Navbar/Navbar";
 
 const drawerWidth = 240;
+const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 function Courses() {
   const drawer = (
@@ -36,8 +41,32 @@ function Courses() {
 
         <Accordion>
           <AccordionSummary>
-            <Typography>Accordion</Typography>
+            <Typography variant="h5">Desenvolvimento Full Stack</Typography>
           </AccordionSummary>
+          <AccordionDetails>
+            <Box display={"flex"} justifyContent={"space-between"}>
+              <Typography>Curso A</Typography>
+              <Checkbox {...label} defaultChecked color="success" />
+            </Box>
+            <Box>
+              <Stack direction="rwo" spacing={1}>
+                <Chip label="Artigo" color="primary" />
+                <Chip label="FCamara" color="primary" />
+              </Stack>
+            </Box>
+          </AccordionDetails>
+          <AccordionDetails>
+            <Box display={"flex"} justifyContent={"space-between"}>
+              <Typography>Curso B</Typography>
+              <Checkbox {...label} defaultChecked color="success" />
+            </Box>
+          </AccordionDetails>
+          <AccordionDetails>
+            <Box display={"flex"} justifyContent={"space-between"}>
+              <Typography>Curso C</Typography>
+              <Checkbox {...label} defaultChecked color="success" />
+            </Box>
+          </AccordionDetails>
         </Accordion>
         <Accordion>
           <AccordionSummary>
