@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
+import Slider from "../../components/Carousel/Carousel";
 import "./styles.css";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
@@ -62,6 +63,9 @@ function Dashboard() {
       <div className="comunity-container">
         <h1>Comunidade</h1>
         <h5>Conecte-se com outros membros:</h5>
+        <div className="slider-comunity">
+          <Slider />
+        </div>
       </div>
     </div>
   );

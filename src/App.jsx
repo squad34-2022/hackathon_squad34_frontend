@@ -5,6 +5,7 @@ import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import Navbar from "./components/Navbar/navbar";
 import Course from "./pages/Courses/Course";
+import Carousel from "./components/Carousel/Carousel";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/cursos" element={<Course />} />
           <Route path="/cadastro" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/carousel" element={<Carousel />} />
         </Routes>
       </div>
     </BrowserRouter>
