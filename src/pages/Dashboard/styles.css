@@ -13,7 +13,7 @@
 }
 
 .welcome-container h1 {
-font-family: 'Inter';
+  font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
   font-size: 72px;
@@ -44,22 +44,20 @@ font-family: 'Inter';
 
 .comunity-container h1 {
   font-family: 'Inter';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 72px;
-    line-height: 87px;
-    display: flex;
-    align-items: center;
-    background: linear-gradient(93.6deg, #FF3102 0%, #DB6400 34.9%, #FF8700 65.63%, #FBB800 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
+  font-style: normal;
+  font-weight: 700;
+  font-size: 72px;
+  line-height: 87px;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(93.6deg, #FF3102 0%, #DB6400 34.9%, #FF8700 65.63%, #FBB800 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
-  .slider-comunity {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 3rem;
-    margin-left: 35rem;
-  }
+.slider-comunity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
