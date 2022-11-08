@@ -7,10 +7,6 @@ import * as React from "react";
 
 import "./navbar.css";
 
-// to-do:
-// criar verificação de usuário logado para mostrar a navbar
-// conectar as rotas do menu dinamicamente (usar react-router-dom?)
-
 export default function Navbar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
