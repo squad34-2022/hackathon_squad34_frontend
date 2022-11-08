@@ -1,9 +1,9 @@
-import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
+import * as React from "react";
 
 import "./navbar.css";
 
@@ -25,9 +25,7 @@ export default function Navbar() {
             🍊 Orange Evolution
           </Typography>
           <a href="/">
-            <Button className="navbar-menu" color="inherit">
-              Home
-            </Button>
+            <Button className="navbar-menu">Home</Button>
           </a>
           <a href="/trilhas">
             <Button className="navbar-menu" color="inherit">

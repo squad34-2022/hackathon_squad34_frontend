@@ -8,5 +8,7 @@
 }
 
 .navbar-menu {
-  color: #152536!important;
+  color: #152536 !important;
+  margin-left: 0.5rem !important;
+  border-radius: 4px !important;
 }

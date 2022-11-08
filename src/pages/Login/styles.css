@@ -13,3 +13,6 @@ h1.MuiTypography-root {
   font-weight: 700;
   font-size: 4.5rem;
 }
+.background-image {
+  background-image: url(../../assets/background-register.png);
+}
