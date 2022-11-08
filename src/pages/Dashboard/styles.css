@@ -55,3 +55,11 @@ font-family: 'Inter';
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+
+  .slider-comunity {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+    margin-left: 35rem;
+  }
