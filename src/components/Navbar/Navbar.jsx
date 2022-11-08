@@ -14,7 +14,10 @@ import "./navbar.css";
 export default function Navbar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar
+        position="fixed"
+        sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+      >
         <Toolbar className="navbar-bg-color">
           <Typography
             className="navbar-h6"

@@ -34,7 +34,7 @@ function Dashboard() {
               <BorderLinearProgress
                 sx={{ width: 500 }}
                 variant="determinate"
-                value={100}
+                value={10}
               />
             </Box>
           </div>
@@ -44,7 +44,7 @@ function Dashboard() {
               <BorderLinearProgress
                 sx={{ width: 500 }}
                 variant="determinate"
-                value={100}
+                value={60}
               />
             </Box>
           </div>

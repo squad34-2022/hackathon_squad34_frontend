@@ -90,24 +90,13 @@ function ResponsiveDrawer(props) {
       <AppBar
         position="fixed"
         sx={{
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          width: { sm: "calc(100% - 0" },
           ml: { sm: `${drawerWidth}px` },
         }}
       >
-        <Toolbar className="navbar-bg-color">
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography className="navbar-h6" variant="h6" noWrap component="div">
-            🍊 Orange Evolution
-          </Typography>
-        </Toolbar>
+        <Typography className="navbar-h6" variant="h6" noWrap component="div">
+          🍊 Orange Evolution
+        </Typography>
       </AppBar>
       <Box
         component="nav"

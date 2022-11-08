@@ -1,9 +1,9 @@
 import { ThemeProvider } from "@mui/material";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar/navbar";
-import Course from "./pages/Courses/Course";
+import Course from "./pages/Courses/Courses";
 import Dashboard from "./pages/Dashboard/Dashboard";
-import Trilhas from "./pages/Trilhas/"
+import Trilhas from "./pages/Trilhas/";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
