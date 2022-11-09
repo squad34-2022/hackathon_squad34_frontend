@@ -11,3 +11,7 @@
   margin-left: 0.5rem !important;
   border-radius: 4px !important;
 }
+
+.text-dec-none {
+  text-decoration: none;
+}
