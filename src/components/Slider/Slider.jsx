@@ -1,14 +1,24 @@
-import AwesomeSlider from 'react-awesome-slider';
-import 'react-awesome-slider/dist/styles.css';
+import AwesomeSlider from "react-awesome-slider";
+
+import "react-awesome-slider/dist/styles.css";
+
+import img1 from "../../assets/discord_card.jpg";
+import img2 from "../../assets/youtube_card.jpg";
+import img3 from "../../assets/medium_card.jpg";
+import img4 from "../../assets/twitch_card.jpg";
+import img5 from "../../assets/podcast_card.jpg";
 
 function SliderTeste() {
+  let imagesSlider = [img1, img2, img3, img4, img5];
+
   return (
-    <AwesomeSlider>
-      <div><img src="https://www.freecodecamp.org/portuguese/news/content/images/size/w2000/2022/04/0_IlQX1QCLarsRIFl7.jpg" alt="" /></div>
-      <div><img src="https://www.freecodecamp.org/portuguese/news/content/images/size/w2000/2022/04/0_IlQX1QCLarsRIFl7.jpg" alt="" /></div>
-      <div><img src="https://www.freecodecamp.org/portuguese/news/content/images/size/w2000/2022/04/0_IlQX1QCLarsRIFl7.jpg" alt="" /></div>
-      <div><img src="https://www.freecodecamp.org/portuguese/news/content/images/size/w2000/2022/04/0_IlQX1QCLarsRIFl7.jpg" alt="" /></div>
+    <AwesomeSlider transitionDelay={100}>
+      {imagesSlider.map((image, i) => (
+        <div>
+          <img src={imagesSlider[i]} alt="" />
+        </div>
+      ))}
     </AwesomeSlider>
-  )
+  );
 }
-export default SliderTeste
+export default SliderTeste;
