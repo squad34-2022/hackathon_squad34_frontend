@@ -23,15 +23,15 @@ export default function Navbar() {
           >
             🍊 Orange Evolution
           </Typography>
-          <a href="/">
+          <a href="/" className="text-dec-none">
             <Button className="navbar-menu">Home</Button>
           </a>
-          <a href="/trilhas">
+          <a href="/trilhas" className="text-dec-none">
             <Button className="navbar-menu" color="inherit">
               Trilhas
             </Button>
           </a>
-          <a href="/">
+          <a href="/" className="text-dec-none">
             <Button className="navbar-menu" color="inherit">
               Sair
             </Button>
