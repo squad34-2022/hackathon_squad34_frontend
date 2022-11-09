@@ -20,44 +20,35 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 }));
 
 function Dashboard() {
+  const userName = "Junior";
+
+  const courses = [
+    "UX/UI Design",
+    "Desenvolvimento Full Stack",
+    "Quality Assurance (QA)",
+    "Futuro Curso",
+  ];
+
   return (
     <div>
       <div className="welcome-container">
-        <h1>Olá, José</h1>
+        <h1>Olá, {userName}</h1>
         <h5>Veja seu progresso nas trilhas:</h5>
       </div>
       <div className="progress-container">
         <div className="trails-progress">
-          <div className="trail">
-            <h5>UX/UI Design</h5>
-            <Box sx={{ flexGrow: 1 }}>
-              <BorderLinearProgress
-                sx={{ width: 500 }}
-                variant="determinate"
-                value={100}
-              />
-            </Box>
-          </div>
-          <div className="trail">
-            <h5>Desenvolvimento Full Stack</h5>
-            <Box sx={{ flexGrow: 1 }}>
-              <BorderLinearProgress
-                sx={{ width: 500 }}
-                variant="determinate"
-                value={100}
-              />
-            </Box>
-          </div>
-          <div className="trail">
-            <h5>QA</h5>
-            <Box sx={{ flexGrow: 1 }}>
-              <BorderLinearProgress
-                sx={{ width: 500 }}
-                variant="determinate"
-                value={100}
-              />
-            </Box>
-          </div>
+          {courses.map((course, i) => (
+            <div className="trail">
+              <h5>{courses[i]}</h5>
+              <Box sx={{ flexGrow: 1 }}>
+                <BorderLinearProgress
+                  sx={{ width: 500 }}
+                  variant="determinate"
+                  value={100}
+                />
+              </Box>
+            </div>
+          ))}
         </div>
       </div>
       <div className="comunity-container">
