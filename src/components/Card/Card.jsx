@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import ImageUx from "../../assets/ImageUx.png"
 
-export default function MediaCard() {
+export default function MediaCard({name, description}) {
   return (
     <Card sx={{ maxWidth: 245 }}>
       <CardMedia
@@ -18,11 +18,10 @@ export default function MediaCard() {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          UX/UI Design
+          {name}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          A pessoa UX/UI Designer é responsável pela experiência do usuário e
-          também pelo desenho e projeção de interfaces.
+          {description}
         </Typography>
       </CardContent>
       <CardActions>{/* Créditos aqui */}</CardActions>
