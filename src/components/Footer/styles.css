@@ -1,31 +1,4 @@
-.footer {
-  display: flex;
-  justify-content:space-evenly;
-  align-items: center;
-  background-color: #303133;
-  height: 60vh;
-}
-
-.footer-container {
-  display: flex;
-  gap: 10rem;
-}
-
-.items-footer {
-  margin-top: 4rem;
-}
-
-.items-footer li {
-  color: azure;
-  list-style: none;
-  font-size: 24px;
-  text-align: center;
-}
-
-.localizations {
-  color: azure;
-  list-style: none;
-  font-size: 20px;
-  text-align: center;
-  max-width: 15rem;
+.icons {
+  color: #000;
+  padding: 0.2rem;
 }
