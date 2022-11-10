@@ -18,14 +18,14 @@ const teste = [
         title: "JS",
         author: "FCamara",
         type: "Artigo",
-        link: "http",
+        link: "https://www.youtube.com/embed/pdLZ7KvTXTE",
       },
       {
         _id: "2",
         title: "JS",
         author: "FCamara",
         type: "Artigo",
-        link: "http",
+        link: "https://www.youtube.com/embed/n0KH8dQSrv0",
       },
     ],
   },
@@ -106,9 +106,7 @@ function Courses() {
           width="1200"
           height="800"
           src=""
-          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
         ></iframe>
       </Box>
     </Box>
