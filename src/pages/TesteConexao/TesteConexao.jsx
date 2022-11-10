@@ -7,7 +7,7 @@ function TesteConexao() {
 
   useEffect(() => {
     apiBack
-      .get("/users/636b14ab1eced48119ef0b2e")
+      .get("/users")
       .then((res) => setUsers(res.data))
       .catch((err) => {
         console.log(err);
