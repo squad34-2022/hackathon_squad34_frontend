@@ -1,6 +1,10 @@
-import { Drawer, Toolbar } from "@mui/material";
-import AccordionCustom from "../../components/AccordionCustom";
+import Box from "@mui/material/Box";
+import Drawer from "@mui/material/Drawer";
+import AppBar from "@mui/material/AppBar";
+import CssBaseline from "@mui/material/CssBaseline";
+import Toolbar from "@mui/material/Toolbar";
 import Navbar from "../../components/Navbar/Navbar";
+import AccordionCustom from "../../components/AccordionCustom";
 
 const drawerWidth = 240;
 
@@ -68,19 +72,18 @@ const teste = [
 ];
 
 function Courses() {
-  // const drawer = (
-  //   <div>
-  //     <Toolbar />
-  //   </div>
-  // );
-
   return (
-    <>
-      <Navbar />
-      <Toolbar />
+    <Box sx={{ display: "flex" }}>
+      <CssBaseline />
+      <AppBar
+        position="fixed"
+        sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+      >
+        <Navbar />
+      </AppBar>
       <Drawer
+        variant="permanent"
         sx={{
-          marginTop: 100,
           width: drawerWidth,
           flexShrink: 0,
           [`& .MuiDrawer-paper`]: {
@@ -88,16 +91,26 @@ function Courses() {
             boxSizing: "border-box",
           },
         }}
-        open={true}
-        variant="permanent"
       >
-        {/* {drawer} */}
-        {teste?.map(({ title, _id, courses }) => (
-          <AccordionCustom key={_id} title={title} courses={courses} />
-        ))}
-        <div>Fim</div>
+        <Toolbar />
+        <Box sx={{ overflow: "auto" }}>
+          {teste?.map(({ title, _id, courses }) => (
+            <AccordionCustom key={_id} title={title} courses={courses} />
+          ))}
+        </Box>
       </Drawer>
-    </>
+      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        <Toolbar />
+        <iframe
+          width="600"
+          height="400"
+          src="https://www.youtube.com/embed/pdLZ7KvTXTE"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </Box>
+    </Box>
   );
 }
 
