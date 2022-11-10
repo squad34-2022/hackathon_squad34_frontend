@@ -1,50 +1,72 @@
+import { Grid, Box, Typography } from "@mui/material";
+import EmailIcon from "@mui/icons-material/EmailOutlined";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import FacebookIcon from "@mui/icons-material/Facebook";
 import "./styles.css";
 
 function Footer() {
   return (
-    <div className="footer">
-      <div className="footer-container">
-        <div>
-          <img
-            src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1654865437/$khtwl6dbna"
-            alt=""
-          />
-        </div>
-        <div className="items-footer">
-          <li>
-            <ul>Home</ul>
-            <ul>Trilhas</ul>
-            <ul>Comunidade</ul>
-            <ul>Contato</ul>
-          </li>
-        </div>
-        <div className="localizations">
-          <li>
-            <ul>
-              <h4>Onde Estamos</h4>
-            </ul>
-            <ul>
-              <h5>
-                <p>São Paulo</p>
-                <p>MATRIZ</p>
-              </h5>
-            </ul>
-            <ul>
-              <p>Rua Bela Cintra, 986 - 2º andar Consolação, São Paulo - SP</p>
-            </ul>
-            <ul>
-              <h5>
-                <p>Santos</p>
-                <p>FILIAL</p>
-              </h5>
-            </ul>
-            <ul>
-              <p>Praça dos Expedicionários, 19 Sala 22 Gonzaga, Santos - SP</p>
-            </ul>
-          </li>
-        </div>
-      </div>
-    </div>
+    <>
+      <Grid container direction="row" justifyContent="center">
+        <Grid paddingY={7} xs={4}>
+          <Box>
+            <img
+              src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1654865437/$khtwl6dbna"
+              alt="Logo Grupo FCamara"
+            />
+          </Box>
+          <Box marginLeft={2}>
+            <Typography
+              variant="subtitle2"
+              gutterBottom
+              paddingY={2}
+              paddingBottom={1}
+            >
+              Copyright © 2022:{" "}
+              <a
+                target="_blank"
+                href="https://digital.fcamara.com.br/orange-evolution"
+                className="text-decorator-none"
+              >
+                Orange Evolution
+              </a>
+            </Typography>
+          </Box>
+        </Grid>
+        <Grid xs={4}>
+          <Box>
+            <Box>
+              <Typography variant="h5" paddingY={7} paddingBottom={4}>
+                Fale Conosco:
+              </Typography>
+            </Box>
+            <Box>
+              <a
+                href="mailto:equipe34.2022@gmail.com"
+                target="_blank"
+                className="icons"
+              >
+                <EmailIcon />
+              </a>
+              <a
+                href="https://github.com/squad34-2022"
+                target="_blank"
+                className="icons"
+              >
+                <GitHubIcon />
+              </a>
+              <a
+                href="https://www.facebook.com"
+                target="_blank"
+                className="icons"
+              >
+                <FacebookIcon />
+              </a>
+            </Box>
+          </Box>
+        </Grid>
+      </Grid>
+    </>
   );
 }
 

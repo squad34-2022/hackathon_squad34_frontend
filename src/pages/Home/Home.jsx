@@ -1,6 +1,6 @@
-import { Typography } from "@mui/material";
+import { Typography, Button } from "@mui/material";
 import Footer from "../../components/Footer/Footer";
-import "./styles.css";
+import "./home.css";
 
 function Home() {
   return (
@@ -14,17 +14,29 @@ function Home() {
             />
           </div>
           <div className="text-apresentation">
-            <Typography variant="h1">A comunidade tech mais vitaminada!</Typography>
-            <Typography variant="h3">
+            <Typography variant="h1">
+              A comunidade tech mais vitaminada!
+            </Typography>
+            <Typography variant="h4" className="home-h4">
               Conecte-se com pessoas com os mesmos interesses que você enquanto
               aprende sobre as maiores tendências do mundo da tecnologia.
             </Typography>
+            <div className="home-btn">
+              <a href="/cadastro" className="text-dec-none">
+                <Button variant="contained">Criar conta</Button>
+              </a>
+              <a href="/login" className="text-dec-none">
+                <Button variant="contained">Entrar</Button>
+              </a>
+            </div>
           </div>
         </div>
       </div>
       <div className="container-trails">
         <div className="container-cards">
-          <Typography variant="h3" className="home-h3">Conheça nossas trilhas:</Typography>
+          <Typography variant="h3" className="home-h3">
+            Entre e conheça nossas trilhas:
+          </Typography>
           <div className="card-trail">
             <img
               src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$mip3cw6frz9"
