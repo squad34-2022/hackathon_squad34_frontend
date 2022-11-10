@@ -37,7 +37,7 @@ function Dashboard() {
       </div>
       <div className="progress-container">
         <div className="trails-progress">
-          {courses.map((course, i) => (
+          {courses?.map((course, i) => (
             <div className="trail">
               <h5>{courses[i]}</h5>
               <Box sx={{ flexGrow: 1 }}>

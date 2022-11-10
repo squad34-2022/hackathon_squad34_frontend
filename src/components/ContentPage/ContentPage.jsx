@@ -57,7 +57,7 @@ function ContentPage() {
           ></iframe>
         </div>
         <div>
-          <p className="text">Site Scrum Aliance</p>
+          <p className="text">Site Amazon</p>
           <iframe
             width="200px"
             height="200px"

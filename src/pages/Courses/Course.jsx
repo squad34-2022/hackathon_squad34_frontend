@@ -1,33 +1,86 @@
-import {
-  Accordion,
-  AccordionDetails,
-  AccordionSummary,
-  Box,
-  Checkbox,
-  Chip,
-  Divider,
-  Drawer,
-  Stack,
-  Toolbar,
-  Typography,
-} from "@mui/material";
+import { Drawer, Toolbar } from "@mui/material";
+import AccordionCustom from "../../components/AccordionCustom";
 import Navbar from "../../components/Navbar/Navbar";
 
 const drawerWidth = 240;
-const label = { inputProps: { "aria-label": "Checkbox demo" } };
+
+const teste = [
+  {
+    title: "Dev Full Stack",
+    _id: "1",
+    courses: [
+      {
+        _id: "1",
+        title: "JS",
+        author: "FCamara",
+        type: "Artigo",
+        link: "http",
+      },
+      {
+        _id: "2",
+        title: "JS",
+        author: "FCamara",
+        type: "Artigo",
+        link: "http",
+      },
+    ],
+  },
+  {
+    title: "UX",
+    _id: "2",
+    courses: [
+      {
+        _id: "1",
+        title: "JS",
+        author: "FCamara",
+        type: "Artigo",
+        link: "http",
+      },
+      {
+        _id: "2",
+        title: "JS",
+        author: "FCamara",
+        type: "Artigo",
+        link: "http",
+      },
+    ],
+  },
+  {
+    title: "QA",
+    _id: "3",
+    courses: [
+      {
+        _id: "1",
+        title: "JS",
+        author: "FCamara",
+        type: "Artigo",
+        link: "http",
+      },
+      {
+        _id: "2",
+        title: "JS",
+        author: "FCamara",
+        type: "Artigo",
+        link: "http",
+      },
+    ],
+  },
+];
 
 function Courses() {
-  const drawer = (
-    <div>
-      <Toolbar marginTop="10px" />
-    </div>
-  );
+  // const drawer = (
+  //   <div>
+  //     <Toolbar />
+  //   </div>
+  // );
 
   return (
     <>
       <Navbar />
+      <Toolbar />
       <Drawer
         sx={{
+          marginTop: 100,
           width: drawerWidth,
           flexShrink: 0,
           [`& .MuiDrawer-paper`]: {
@@ -38,134 +91,10 @@ function Courses() {
         open={true}
         variant="permanent"
       >
-        {drawer}
-
-        <Accordion>
-          <AccordionSummary>
-            <Typography variant="h5">Desenvolvimento Full Stack</Typography>
-          </AccordionSummary>
-          <Divider />
-          <AccordionDetails>
-            <Box display={"flex"} justifyContent={"space-between"}>
-              <Typography>Curso A</Typography>
-              <Checkbox {...label} color="success" />
-            </Box>
-            <Box>
-              <Stack direction="rwo" spacing={1}>
-                <Chip label="Artigo" color="primary" />
-                <Chip label="FCamara" color="primary" />
-              </Stack>
-            </Box>
-          </AccordionDetails>
-          <AccordionDetails>
-            <Box display={"flex"} justifyContent={"space-between"}>
-              <Typography>Curso B</Typography>
-              <Checkbox {...label} color="success" />
-            </Box>
-            <Box>
-              <Stack direction="rwo" spacing={1}>
-                <Chip label="Artigo" color="primary" />
-                <Chip label="FCamara" color="primary" />
-              </Stack>
-            </Box>
-          </AccordionDetails>
-          <AccordionDetails>
-            <Box display={"flex"} justifyContent={"space-between"}>
-              <Typography>Curso C</Typography>
-              <Checkbox {...label} color="success" />
-            </Box>
-            <Box>
-              <Stack direction="rwo" spacing={1}>
-                <Chip label="Artigo" color="primary" />
-                <Chip label="FCamara" color="primary" />
-              </Stack>
-            </Box>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion>
-          <AccordionSummary>
-            <Typography variant="h5">UX/UI Design</Typography>
-          </AccordionSummary>
-          <Divider />
-          <AccordionDetails>
-            <Box display={"flex"} justifyContent={"space-between"}>
-              <Typography>Curso A</Typography>
-              <Checkbox {...label} color="success" />
-            </Box>
-            <Box>
-              <Stack direction="rwo" spacing={1}>
-                <Chip label="Artigo" color="primary" />
-                <Chip label="FCamara" color="primary" />
-              </Stack>
-            </Box>
-          </AccordionDetails>
-          <AccordionDetails>
-            <Box display={"flex"} justifyContent={"space-between"}>
-              <Typography>Curso B</Typography>
-              <Checkbox {...label} color="success" />
-            </Box>
-            <Box>
-              <Stack direction="rwo" spacing={1}>
-                <Chip label="Artigo" color="primary" />
-                <Chip label="FCamara" color="primary" />
-              </Stack>
-            </Box>
-          </AccordionDetails>
-          <AccordionDetails>
-            <Box display={"flex"} justifyContent={"space-between"}>
-              <Typography>Curso C</Typography>
-              <Checkbox {...label} color="success" />
-            </Box>
-            <Box>
-              <Stack direction="rwo" spacing={1}>
-                <Chip label="Artigo" color="primary" />
-                <Chip label="FCamara" color="primary" />
-              </Stack>
-            </Box>
-          </AccordionDetails>
-        </Accordion>
-        <Accordion>
-          <AccordionSummary>
-            <Typography variant="h5">Quality Assurance (QA)</Typography>
-          </AccordionSummary>
-          <Divider />
-          <AccordionDetails>
-            <Box display={"flex"} justifyContent={"space-between"}>
-              <Typography>Curso A</Typography>
-              <Checkbox {...label} color="success" />
-            </Box>
-            <Box>
-              <Stack direction="rwo" spacing={1}>
-                <Chip label="Artigo" color="primary" />
-                <Chip label="FCamara" color="primary" />
-              </Stack>
-            </Box>
-          </AccordionDetails>
-          <AccordionDetails>
-            <Box display={"flex"} justifyContent={"space-between"}>
-              <Typography>Curso B</Typography>
-              <Checkbox {...label} color="success" />
-            </Box>
-            <Box>
-              <Stack direction="rwo" spacing={1}>
-                <Chip label="Artigo" color="primary" />
-                <Chip label="FCamara" color="primary" />
-              </Stack>
-            </Box>
-          </AccordionDetails>
-          <AccordionDetails>
-            <Box display={"flex"} justifyContent={"space-between"}>
-              <Typography>Curso C</Typography>
-              <Checkbox {...label} color="success" />
-            </Box>
-            <Box>
-              <Stack direction="rwo" spacing={1}>
-                <Chip label="Artigo" color="primary" />
-                <Chip label="FCamara" color="primary" />
-              </Stack>
-            </Box>
-          </AccordionDetails>
-        </Accordion>
+        {/* {drawer} */}
+        {teste?.map(({ title, _id, courses }) => (
+          <AccordionCustom key={_id} title={title} courses={courses} />
+        ))}
         <div>Fim</div>
       </Drawer>
     </>
