@@ -102,9 +102,10 @@ function Courses() {
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Toolbar />
         <iframe
-          width="600"
-          height="400"
-          src="https://www.youtube.com/embed/pdLZ7KvTXTE"
+          name="aula1"
+          width="1200"
+          height="800"
+          src=""
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
