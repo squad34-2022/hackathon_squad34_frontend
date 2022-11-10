@@ -1,4 +1,4 @@
-*{
+* {
   padding: 0;
   margin: 0;
   border: 0;
@@ -10,7 +10,7 @@
   background-image: linear-gradient(to top, transparent 85%, black), url(https://d335luupugsy2.cloudfront.net/cms/files/107693/1655132576/$jp1dmh18t9g);
   background-size: initial;
   border-bottom: none;
-  height: 85vh;
+  height: 100vh;
   background-attachment: fixed;
 }
 
@@ -33,13 +33,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 4rem;
-}
-
-.text-apresentation h1 {
-  color: #ff5a23;
-  font-weight: 600;
-  font-size: 3rem;
+  gap: 1rem;
 }
 
 .text-apresentation h3 {
@@ -48,15 +42,15 @@
 }
 
 .container-trails {
-  background-image: linear-gradient(45deg, rgb(2, 255, 171), rgb(117, 32, 253));
-  height: 70vh;
-  padding: 9rem;
+  background-image: linear-gradient(93.6deg, #FF3102 0%, #DB6400 34.9%, #FF8700 65.63%, #FBB800 100%);
+  height: 40vh;
+  padding: 4rem;
 }
 
 .container-cards {
   display: flex;
   justify-content: center;
-  gap: 11rem;
+  gap: 6rem;
 }
 
 .card-trail {
@@ -66,6 +60,10 @@
   align-items: center;
 }
 
-.card-trail h3{
+.card-trail h3 {
   color: white;
+}
+
+.home-h3 {
+  color: #fff;
 }
