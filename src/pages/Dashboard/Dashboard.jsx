@@ -1,12 +1,12 @@
 import apiBack from "../../services/apiBack";
 import { useState, useEffect } from "react";
 import { styled } from "@mui/material/styles";
-import Box from "@mui/material/Box";
 import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
 import Slider from "../../components/Slider/Slider";
 import "./styles.css";
+import { Typography, Box } from "@mui/material";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,
@@ -34,49 +34,51 @@ function Dashboard() {
   }, []);
 
   const courses = [
-    "UX/UI Design",
-    "Desenvolvimento Full Stack",
-    "Quality Assurance (QA)",
-    "Futuro Curso",
+    { title: "UX/UI Design", value: 10 },
+    { title: "Web", value: 50 },
+    { title: "QA", value: 100 },
+    { title: "Futura", value: 0 },
   ];
 
   if (users.length === 0) {
     return (
-      <div>
-        <h1>Carregando</h1>
-      </div>
+      <Box>
+        <Typography variant="h1">Carregando</Typography>
+      </Box>
     );
   } else {
     return (
-      <div>
-        <div className="welcome-container">
-          <h1>Olá, {users[0].name}</h1>
-          <h5>Veja seu progresso nas trilhas:</h5>
-        </div>
-        <div className="progress-container">
-          <div className="trails-progress">
-            {courses?.map((course, i) => (
-              <div className="trail">
-                <h5>{courses[i]}</h5>
+      <>
+        <Box mt={5} ml={40}>
+          <Typography variant="h1">Olá, {users[0].name}</Typography>
+          <Typography variant="h5">Veja seu progresso nas trilhas:</Typography>
+        </Box>
+        <Box className="progress-container">
+          <Box className="trails-progress">
+            {courses?.map(({ title, value }) => (
+              <Box>
+                <Typography variant="h6" title={title}>
+                  {title}
+                </Typography>
                 <Box sx={{ flexGrow: 1 }}>
                   <BorderLinearProgress
                     sx={{ width: 500 }}
                     variant="determinate"
-                    value={10}
+                    value={value}
                   />
                 </Box>
-              </div>
+              </Box>
             ))}
-          </div>
-        </div>
-        <div className="comunity-container">
-          <h1>Comunidade</h1>
-          <h5>Conecte-se com outros membros:</h5>
-          <div className="slider-comunity">
+          </Box>
+        </Box>
+        <Box mt={30} ml={40}>
+          <Typography variant="h1">Comunidade</Typography>
+          <Typography variant="h5">Conecte-se com outros membros:</Typography>
+          <Box ml={10} width={700}>
             <Slider />
-          </div>
-        </div>
-      </div>
+          </Box>
+        </Box>
+      </>
     );
   }
 }
