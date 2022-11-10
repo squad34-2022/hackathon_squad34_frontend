@@ -13,7 +13,11 @@ function AccordionDetailsCustom({ title, type, author }) {
   return (
     <AccordionDetails>
       <Box display={"flex"} justifyContent={"space-between"}>
-        <Typography>{title}</Typography>
+        <Typography>
+          <a href="https://www.youtube.com/embed/pdLZ7KvTXTE" target="aula1">
+            {title}
+          </a>
+        </Typography>
         <Checkbox {...label} color="success" />
       </Box>
       <Box>

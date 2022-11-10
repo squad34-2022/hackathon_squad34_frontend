@@ -9,7 +9,7 @@ import Register from "./pages/Register";
 import theme from "./themes/theme";
 import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
 import ContentPage from "./components/ContentPage/ContentPage";
-import TesteConexao from "./pages/TesteConexão/TesteConexao";
+import TesteConexao from "./pages/TesteConexao/TesteConexao";
 
 function App() {
   return (
