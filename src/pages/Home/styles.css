@@ -49,16 +49,14 @@
 
 .container-trails {
   background-image: linear-gradient(45deg, rgb(2, 255, 171), rgb(117, 32, 253));
-  height: auto;
+  height: 70vh;
   padding: 9rem;
-  width: auto;
 }
 
 .container-cards {
   display: flex;
   justify-content: center;
   gap: 11rem;
-  flex-wrap: wrap;
 }
 
 .card-trail {
