@@ -9,19 +9,19 @@ import {
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
-function AccordionDetailsCustom({ title, type, author }) {
+function AccordionDetailsCustom({ title, type, author, link }) {
   return (
     <AccordionDetails>
       <Box display={"flex"} justifyContent={"space-between"}>
         <Typography>
-          <a href="https://www.youtube.com/embed/pdLZ7KvTXTE" target="aula1">
+          <a href={`${link}`} target="aula1">
             {title}
           </a>
         </Typography>
         <Checkbox {...label} color="success" />
       </Box>
       <Box>
-        <Stack direction="rwo" spacing={1}>
+        <Stack direction="row" spacing={1}>
           <Chip label={type} color="primary" />
           <Chip label={author} color="primary" />
         </Stack>
