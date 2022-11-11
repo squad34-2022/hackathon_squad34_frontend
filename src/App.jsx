@@ -2,7 +2,7 @@ import { ThemeProvider } from "@mui/material";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Course from "./pages/Courses/Course";
 import Dashboard from "./pages/Dashboard/Dashboard";
-import Trilhas from "./pages/Trilhas/";
+import Trilhas from "./pages/Trilhas/Trilhas";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
