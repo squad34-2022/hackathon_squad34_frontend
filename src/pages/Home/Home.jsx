@@ -4,7 +4,7 @@ import "./home.css";
 
 function Home() {
   return (
-    <>
+    <div className="home-body">
       <Grid
         container
         direction="row"
@@ -99,7 +99,7 @@ function Home() {
       </Button>
 
       <Footer />
-    </>
+    </div>
   );
 }
 
