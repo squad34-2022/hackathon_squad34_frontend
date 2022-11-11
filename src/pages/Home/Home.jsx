@@ -1,4 +1,4 @@
-import { Typography, Button, Grid, Box, Container } from "@mui/material";
+import { Typography, Button, Grid, Box } from "@mui/material";
 import Footer from "../../components/Footer/Footer";
 import "./home.css";
 
@@ -48,48 +48,56 @@ function Home() {
           </Grid>
         </Grid>
       </Grid>
-      <Grid
-        container
-        direction="row"
-        justifyContent="center"
-        alignItems="center"
-        className="bg-gradient"
+
+      <Button
+        sx={{ border: "none", width: "100%" }}
+        variant="outlined"
+        href="/trilhas"
       >
-        <Grid item xs={12}>
-          <Box display="flex" justifyContent="space-around">
-            <Typography variant="h3" className="home-h3">
-              Entre e conheça nossas trilhas:
-            </Typography>
-            <Box flexDirection="column" textAlign="center">
-              <img
-                src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$mip3cw6frz9"
-                alt="FullStack"
-              />
-              <Typography variant="h5" className="color-white">
-                Desenvolvimento Full Stack
+        <Grid
+          container
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+          className="bg-gradient"
+        >
+          <Grid item xs={12}>
+            <Box display="flex" justifyContent="space-around">
+              <Typography variant="h3" className="home-h3">
+                Entre e conheça nossas trilhas:
               </Typography>
+              <Box flexDirection="column" textAlign="center">
+                <img
+                  src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$mip3cw6frz9"
+                  alt="FullStack"
+                />
+                <Typography variant="h5" className="color-white">
+                  Desenvolvimento Full Stack
+                </Typography>
+              </Box>
+              <Box flexDirection="column" textAlign="center">
+                <img
+                  src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$orvl84rg8a"
+                  alt=""
+                />
+                <Typography variant="h5" className="color-white">
+                  UX/UI Design
+                </Typography>
+              </Box>
+              <Box flexDirection="column" textAlign="center">
+                <img
+                  src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$4nai9gbaeha"
+                  alt=""
+                />
+                <Typography variant="h5" className="color-white">
+                  QA (Quality Assurance)
+                </Typography>
+              </Box>
             </Box>
-            <Box flexDirection="column" textAlign="center">
-              <img
-                src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$orvl84rg8a"
-                alt=""
-              />
-              <Typography variant="h5" className="color-white">
-                UX/UI Design
-              </Typography>
-            </Box>
-            <Box flexDirection="column" textAlign="center">
-              <img
-                src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$4nai9gbaeha"
-                alt=""
-              />
-              <Typography variant="h5" className="color-white">
-                QA (Quality Assurance)
-              </Typography>
-            </Box>
-          </Box>
+          </Grid>
         </Grid>
-      </Grid>
+      </Button>
+
       <Footer />
     </>
   );

@@ -1,8 +1,14 @@
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import { Box, CardActionArea, Grid } from "@mui/material";
+import {
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+  CardActionArea,
+  Grid,
+  Button,
+  Modal,
+  Box,
+} from "@mui/material";
 import imgDeveloper from "../../assets/developer.jpg";
 import imgDesigner from "../../assets/designer.jpg";
 import imgQA from "../../assets/qa.jpg";
@@ -29,36 +35,59 @@ const trails = [
 ];
 
 function CardTrail() {
+  // const [open, setOpen] = useState(false);
+  // const handleOpen = () => setOpen(true);
+  // const handleClose = () => setOpen(false);
+
   return (
     <Grid mt={5} container justifyContent="center" gap={12}>
       {trails?.map(({ title, description, image }) => (
-        <Card sx={{ maxWidth: 345 }}>
-          <CardActionArea>
-            <CardMedia
-              component="img"
-              height="200"
-              image={image}
-              alt="green iguana"
-            />
-            <CardContent>
-              <Typography
-                gutterBottom
-                variant="h5"
-                component="div"
-                title={title}
-              >
-                {title}
+        <Grid>
+          <Button>
+            <Card sx={{ maxWidth: 345 }}>
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  height="200"
+                  image={image}
+                  alt="green iguana"
+                />
+                <CardContent>
+                  <Typography
+                    gutterBottom
+                    variant="h5"
+                    component="div"
+                    title={title}
+                  >
+                    {title}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    description={description}
+                  >
+                    {description}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          </Button>
+          {/* <Modal
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="modal-modal-title"
+            aria-describedby="modal-modal-description"
+          >
+            <Box sx={style}>
+              <Typography id="modal-modal-title" variant="h6" component="h2">
+                Text in a modal
               </Typography>
-              <Typography
-                variant="body2"
-                color="text.secondary"
-                description={description}
-              >
-                {description}
+              <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+                Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
               </Typography>
-            </CardContent>
-          </CardActionArea>
-        </Card>
+            </Box>
+          </Modal> */}
+        </Grid>
       ))}
     </Grid>
   );
