@@ -3,7 +3,7 @@
   padding: 0;
 }
 
-.home-body{background-color: #000;}
+.home-body{background-color: rgba(20,20,20);}
 
 .bg-image {
   background-image: linear-gradient(to top, transparent 85%, black),

@@ -1,23 +1,23 @@
-import { AppBar, Box, Typography } from "@mui/material";
+import { AppBar, Box, Grid, Typography } from "@mui/material";
 import CardTrail from "../../components/CardTrail/CardTrail";
 import Navbar from "../../components/Navbar/Navbar";
 
 function TrailsPage() {
   return (
-    <Box>
+    <Grid>
       <AppBar
         position="fixed"
         sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
       >
         <Navbar />
       </AppBar>
-      <Box mt={15} ml={40}>
+      <Grid mt={10} justifyContent="center" container>
         <Typography variant="h1">Trilhas</Typography>
-      </Box>
-      <Box>
+      </Grid>
+      <Grid>
         <CardTrail />
-      </Box>
-    </Box>
+      </Grid>
+    </Grid>
   );
 }
 
