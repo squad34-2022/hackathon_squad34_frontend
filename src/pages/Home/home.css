@@ -1,4 +1,9 @@
-body{background-color: #000;}
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.home-body{background-color: #000;}
 
 .bg-image {
   background-image: linear-gradient(to top, transparent 85%, black),
