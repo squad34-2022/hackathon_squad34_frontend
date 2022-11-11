@@ -1,9 +1,17 @@
-import { Typography, Grid, Box, Button } from "@mui/material";
+import {
+  Typography,
+  Grid,
+  Box,
+  Button,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  Chip,
+} from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
-import Modal from "@mui/material/Modal";
 import "./adminDashboard.css";
-import TextField from "@mui/material/TextField";
 
 const style = {
   position: "absolute",
@@ -18,10 +26,6 @@ const style = {
 };
 
 function AdminDashboard() {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
   return (
     <>
       <Navbar />
@@ -31,11 +35,9 @@ function AdminDashboard() {
         justifyContent="center"
         alignItems="center"
       >
-        <Grid item xs={6} alignItems="center">
+        <Grid item xs={6} alignItems="center" textAlign="center" marginTop={12}>
           <Box>
-            <Typography variant="h1" className="admin-dash-h1">
-              Olá, administrador(a)
-            </Typography>
+            <Typography variant="h1">Olá, administrador(a)</Typography>
             <Typography variant="h5" className="color-white">
               O que você quer fazer hoje?
             </Typography>
@@ -49,36 +51,150 @@ function AdminDashboard() {
             </Button>
           </Box>
         </Grid>
+        <Grid item xs={6} alignItems="center" textAlign="center" marginTop={12}>
+          <Box>
+            <Typography variant="h1">Cursos e Trilhas</Typography>
+            <Accordion>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+              >
+                <Typography variant="h5">Trilhas</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Box
+                  display="flex"
+                  justifyContent="space-between"
+                  alignItems="center"
+                >
+                  <Typography textAlign="center">
+                    Desenvolvimento Full Stack
+                  </Typography>
+                  <Box>
+                    <Button
+                      variant="contained"
+                      size="small"
+                      className="admin-dash-btn"
+                    >
+                      Atualizar
+                    </Button>
+                    <Button variant="contained" size="small">
+                      Deletar
+                    </Button>
+                  </Box>
+                </Box>
+              </AccordionDetails>
+
+              <AccordionDetails>
+                <Box
+                  display="flex"
+                  justifyContent="space-between"
+                  alignItems="center"
+                >
+                  <Typography textAlign="center">UX/UI Design</Typography>
+                  <Box>
+                    <Button
+                      variant="contained"
+                      size="small"
+                      className="admin-dash-btn"
+                    >
+                      Atualizar
+                    </Button>
+                    <Button variant="contained" size="small">
+                      Deletar
+                    </Button>
+                  </Box>
+                </Box>
+              </AccordionDetails>
+
+              <AccordionDetails>
+                <Box
+                  display="flex"
+                  justifyContent="space-between"
+                  alignItems="center"
+                >
+                  <Typography textAlign="center">
+                    QA (Quality Assurance)
+                  </Typography>
+                  <Box>
+                    <Button
+                      variant="contained"
+                      size="small"
+                      className="admin-dash-btn"
+                    >
+                      Atualizar
+                    </Button>
+                    <Button variant="contained" size="small">
+                      Deletar
+                    </Button>
+                  </Box>
+                </Box>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1a-content"
+                id="panel1a-header"
+              >
+                <Typography variant="h5">Cursos</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Box
+                  display="flex"
+                  justifyContent="space-between"
+                  alignItems="center"
+                >
+                  <Chip label="Full Stack" />
+                  <Typography textAlign="center">
+                    Migração de Carreira
+                  </Typography>
+                  <Typography textAlign="center">FCamara</Typography>
+                  <Box>
+                    <Button
+                      variant="contained"
+                      size="small"
+                      className="admin-dash-btn"
+                    >
+                      Atualizar
+                    </Button>
+                    <Button variant="contained" size="small">
+                      Deletar
+                    </Button>
+                  </Box>
+                </Box>
+              </AccordionDetails>
+
+              <AccordionDetails>
+                <Box
+                  display="flex"
+                  justifyContent="space-between"
+                  alignItems="center"
+                >
+                  <Chip label="UX/UI Design" />
+                  <Typography textAlign="center">Culture Code</Typography>
+                  <Typography textAlign="center">Orange Juice</Typography>
+                  <Box>
+                    <Button
+                      variant="contained"
+                      size="small"
+                      className="admin-dash-btn"
+                    >
+                      Atualizar
+                    </Button>
+                    <Button variant="contained" size="small">
+                      Deletar1
+                    </Button>
+                  </Box>
+                </Box>
+              </AccordionDetails>
+            </Accordion>
+          </Box>
+        </Grid>
       </Grid>
     </>
   );
-
-  function BasicModal() {
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
-
-    return (
-      <div>
-        <Button onClick={handleOpen}>Open modal</Button>
-        <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <Box sx={style}>
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-              Text in a modal
-            </Typography>
-            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            </Typography>
-          </Box>
-        </Modal>
-      </div>
-    );
-  }
 }
 
 export default AdminDashboard;
