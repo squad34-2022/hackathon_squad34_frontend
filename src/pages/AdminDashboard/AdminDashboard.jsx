@@ -38,7 +38,7 @@ function AdminDashboard() {
         <Grid item xs={6} alignItems="center" textAlign="center" marginTop={12}>
           <Box>
             <Typography variant="h1">Olá, administrador(a)</Typography>
-            <Typography variant="h5" className="color-white">
+            <Typography variant="h5">
               O que você quer fazer hoje?
             </Typography>
           </Box>
