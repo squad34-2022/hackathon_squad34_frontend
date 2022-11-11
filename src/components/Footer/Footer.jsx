@@ -21,12 +21,15 @@ function Footer() {
               gutterBottom
               paddingY={2}
               paddingBottom={1}
+              color="#fff"
             >
               Copyright © 2022:{" "}
               <a
                 target="_blank"
                 href="https://digital.fcamara.com.br/orange-evolution"
                 className="text-decorator-none"
+                color="#fff"
+                
               >
                 Orange Evolution
               </a>
@@ -36,7 +39,12 @@ function Footer() {
         <Grid xs={4}>
           <Box>
             <Box>
-              <Typography variant="h5" paddingY={7} paddingBottom={4}>
+              <Typography
+                variant="h5"
+                paddingY={7}
+                paddingBottom={4}
+                color="#fff"
+              >
                 Fale Conosco:
               </Typography>
             </Box>
@@ -46,21 +54,21 @@ function Footer() {
                 target="_blank"
                 className="icons"
               >
-                <EmailIcon />
+                <EmailIcon sx={{ color: "white" }} />
               </a>
               <a
                 href="https://github.com/squad34-2022"
                 target="_blank"
                 className="icons"
               >
-                <GitHubIcon />
+                <GitHubIcon sx={{ color: "white" }} />
               </a>
               <a
                 href="https://www.facebook.com"
                 target="_blank"
                 className="icons"
               >
-                <FacebookIcon />
+                <FacebookIcon sx={{ color: "white" }} />
               </a>
             </Box>
           </Box>
