@@ -32,6 +32,24 @@ const trails = [
       "A pessoa QA é o olho do cliente dentro da startup. Sendo assim, ela é uma pessoa responsável por analisar todos os aspectos de utilização do software ou aplicação. Enfim, verificar se tudo está sendo entregue conforme a expectativa do cliente.",
     image: imgQA,
   },
+  {
+    title: "Desenvolvimento Full Stack",
+    description:
+      "O desenvolvedor full stack é capaz de trabalhar com toda a pilha de desenvolvimento de um projeto. Além de conseguir atuar com o font-end e o back-end, esse profissional também pode contribuir emtodas as etapas e partes de um sistema, como o servidor e o banco de dados.",
+    image: imgDeveloper,
+  },
+  {
+    title: "UX/UI Designer",
+    description:
+      "O UX Designer é o profissional que atua com o propósito de atrelar os conhecimentos da área do Design e buscar melhorias para a experiência do usuário. UI Designer é o responsável por criar e desenvolver estes elementos gráficos. No Brasil, também é conhecido como designer de interface.",
+    image: imgDesigner,
+  },
+  {
+    title: "Quality Assurance - QA",
+    description:
+      "A pessoa QA é o olho do cliente dentro da startup. Sendo assim, ela é uma pessoa responsável por analisar todos os aspectos de utilização do software ou aplicação. Enfim, verificar se tudo está sendo entregue conforme a expectativa do cliente.",
+    image: imgQA,
+  },
 ];
 
 function CardTrail() {
