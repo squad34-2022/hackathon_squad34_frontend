@@ -184,7 +184,7 @@ function AdminDashboard() {
                       Atualizar
                     </Button>
                     <Button variant="contained" size="small">
-                      Deletar
+                      Deletar1
                     </Button>
                   </Box>
                 </Box>
