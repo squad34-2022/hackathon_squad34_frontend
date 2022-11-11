@@ -36,75 +36,14 @@ function AdminDashboard() {
             <Typography variant="h1" className="admin-dash-h1">
               Olá, administrador(a)
             </Typography>
-            <Typography variant="h5">O que você quer fazer hoje?</Typography>
+            <Typography variant="h5" className="color-white">
+              O que você quer fazer hoje?
+            </Typography>
           </Box>
           <Box>
-            <Button
-              onClick={handleOpen}
-              variant="contained"
-              className="admin-dash-btn mg-top"
-            >
+            <Button variant="contained" className="mg-top admin-dash-btn">
               Adicionar Trilha
             </Button>
-            <Modal
-              open={open}
-              onClose={handleClose}
-              aria-labelledby="modal-modal-title"
-              aria-describedby="modal-modal-description"
-            >
-              <Box sx={style}>
-                <Typography id="modal-modal-title" component="h1" variant="h5">
-                  Trilhas
-                </Typography>
-
-                <TextField
-                  margin="normal"
-                  required
-                  fullWidth
-                  id="name"
-                  label="Nome da Trilha"
-                  name="name"
-                  autoComplete="name"
-                  autoFocus
-                />
-
-                <TextField
-                  margin="normal"
-                  required
-                  fullWidth
-                  id="created"
-                  label="Trilha criada por"
-                  name="created"
-                  autoComplete="created"
-                  autoFocus
-                />
-
-                <TextField
-                  margin="normal"
-                  required
-                  fullWidth
-                  id="created"
-                  label="Descrição"
-                  name="created"
-                  autoComplete="created"
-                  autoFocus
-                />
-
-                <Button
-                  type="submit"
-                  fullWidth
-                  variant="outlined"
-                  sx={{
-                    mt: 3,
-                    mb: 2,
-                    p: 1,
-                    borderRadius: "4px",
-                  }}
-                >
-                  Cadastrar
-                </Button>
-              </Box>
-            </Modal>
             <Button variant="contained" className="mg-top">
               Adicionar Curso
             </Button>
