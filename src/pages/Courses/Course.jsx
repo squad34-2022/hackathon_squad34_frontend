@@ -25,7 +25,7 @@ const teste = [
         title: "JS",
         author: "FCamara",
         type: "Artigo",
-        link: "https://www.youtube.com/embed/n0KH8dQSrv0",
+        link: "https://blog.fcamara.com.br/squads-o-que-e-e-como-funciona/",
       },
     ],
   },
@@ -38,14 +38,14 @@ const teste = [
         title: "JS",
         author: "FCamara",
         type: "Artigo",
-        link: "http",
+        link: "https://www.alura.com.br/artigos/como-se-tornar-um-desenvolvedor-full-stack-no-proximo-ano",
       },
       {
         _id: "2",
         title: "JS",
         author: "FCamara",
         type: "Artigo",
-        link: "http",
+        link: "https://www.youtube.com/embed/n0KH8dQSrv0",
       },
     ],
   },
@@ -58,14 +58,14 @@ const teste = [
         title: "JS",
         author: "FCamara",
         type: "Artigo",
-        link: "http",
+        link: "https://blog.fcamara.com.br/squads-o-que-e-e-como-funciona/",
       },
       {
         _id: "2",
         title: "JS",
         author: "FCamara",
         type: "Artigo",
-        link: "http",
+        link: "https://www.youtube.com/embed/eVwTlOuzT0Q",
       },
     ],
   },
@@ -99,7 +99,7 @@ function Courses() {
           ))}
         </Box>
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box ml={25} component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Toolbar />
         <iframe
           name="aula1"
