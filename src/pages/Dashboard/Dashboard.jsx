@@ -3,8 +3,8 @@ import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
 import { styled } from "@mui/material/styles";
-import Slider from "../../components/Slider/Slider";
 import Navbar from "../../components/Navbar/Navbar";
+import Slider from "../../components/Slider/Slider";
 import "./styles.css";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
@@ -20,19 +20,8 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   },
 }));
 
-const users = [{ name: "Octavio" }];
-
 function Dashboard() {
-  // const [users, setUsers] = useState([]);
-
-  // useEffect(() => {
-  //   apiBack
-  //     .get("/users")
-  //     .then((res) => setUsers(res.data))
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, []);
+  const user = JSON.parse(localStorage.getItem("user"));
 
   const courses = [
     { title: "UX/UI Design", value: 10 },
@@ -41,56 +30,48 @@ function Dashboard() {
     { title: "Futura", value: 0 },
   ];
 
-  if (users.length === 0) {
-    return (
+  return (
+    <Grid
+      container
+      direction="column"
+      justifyContent="center"
+      alignItems="center"
+      gap={3}
+    >
+      <Navbar />
       <Box>
-        <Typography variant="h1">Carregando</Typography>
+        <Typography marginTop={8} variant="h1">
+          Olá, {user.name}
+        </Typography>
+        <Typography variant="h5">Veja seu progresso nas trilhas:</Typography>
       </Box>
-    );
-  } else {
-    return (
-      <Grid
-        container
-        direction="column"
-        justifyContent="center"
-        alignItems="center"
-        gap={3}
-      >
-        <Navbar />
-        <Box>
-          <Typography marginTop={8} variant="h1">
-            Olá, {users[0].name}
-          </Typography>
-          <Typography variant="h5">Veja seu progresso nas trilhas:</Typography>
-        </Box>
-        <Grid className="progress-container">
-          <Box className="trails-progress">
-            {courses?.map(({ title, value }) => (
-              <Box key={title}>
-                <Typography variant="h6" title={title}>
-                  {title}
-                </Typography>
-                <Box sx={{ flexGrow: 1 }}>
-                  <BorderLinearProgress
-                    sx={{ width: 500 }}
-                    variant="determinate"
-                    value={value}
-                  />
-                </Box>
+      <Grid className="progress-container">
+        <Box className="trails-progress">
+          {courses?.map(({ title, value }) => (
+            <Box key={title}>
+              <Typography variant="h6" title={title}>
+                {title}
+              </Typography>
+              <Box sx={{ flexGrow: 1 }}>
+                <BorderLinearProgress
+                  sx={{ width: 500 }}
+                  variant="determinate"
+                  value={value}
+                />
               </Box>
-            ))}
-          </Box>
-        </Grid>
-        <Box>
-          <Typography variant="h1">Comunidade</Typography>
-          <Typography variant="h5">Conecte-se com outros membros:</Typography>
-          <Box width={500}>
-            <Slider />
-          </Box>
+            </Box>
+          ))}
         </Box>
       </Grid>
-    );
-  }
+      <Box>
+        <Typography variant="h1">Comunidade</Typography>
+        <Typography variant="h5">Conecte-se com outros membros:</Typography>
+        <Box width={500}>
+          <Slider />
+        </Box>
+      </Box>
+    </Grid>
+  );
 }
 
 export default Dashboard;
