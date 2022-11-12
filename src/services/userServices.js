@@ -1,8 +1,28 @@
 import apiBack from "./apiBack";
 
 async function getAll() {
-  const { data } = await apiBack.get("/users");
-  return data;
+  try {
+    const response = await apiBack.get("/users", {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    });
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+}
+async function getById(id) {
+  try {
+    const response = await apiBack.get(`/users/${id}`, {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    });
+    return response;
+  } catch (error) {
+    return error.response;
+  }
 }
 
 async function authenticate({ password, email }) {
@@ -50,7 +70,19 @@ async function update(id, { name, password, email }) {
     );
     return response;
   } catch (error) {
-    console.error(error.response.data.error);
+    return error.response;
+  }
+  async function remove(id) {
+    try {
+      const response = await apiBack.delete(`/users/${id}`, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      });
+      return response;
+    } catch (error) {
+      return error.response;
+    }
   }
 }
 async function remove(id) {
@@ -62,7 +94,19 @@ async function remove(id) {
     });
     return response;
   } catch (error) {
-    console.error(error.response.data.error);
+    return error.response;
+  }
+  async function remove(id) {
+    try {
+      const response = await apiBack.delete(`/users/${id}`, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      });
+      return response;
+    } catch (error) {
+      return error.response;
+    }
   }
 }
 
@@ -72,6 +116,7 @@ const UserServices = {
   update,
   authenticate,
   remove,
+  getById,
 };
 
 export default UserServices;
