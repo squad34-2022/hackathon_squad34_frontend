@@ -4,9 +4,9 @@ import {
   Divider,
   Typography,
 } from "@mui/material";
-import AccordionDetailsCustom from "../AccordionDetailsCustom";
+import AccordionDetailsCourses from "../AccordionDetailsCourses";
 
-function AccordionCustom({ title, courses }) {
+function AccordionCourses({ title, courses }) {
   console.log(courses);
 
   return (
@@ -16,7 +16,7 @@ function AccordionCustom({ title, courses }) {
       </AccordionSummary>
       <Divider />
       {courses?.map(({ _id, title, type, author, link }) => (
-        <AccordionDetailsCustom
+        <AccordionDetailsCourses
           key={_id}
           title={title}
           type={type}
@@ -28,4 +28,4 @@ function AccordionCustom({ title, courses }) {
   );
 }
 
-export default AccordionCustom;
+export default AccordionCourses;

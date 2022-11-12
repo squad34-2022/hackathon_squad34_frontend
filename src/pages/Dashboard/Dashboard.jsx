@@ -1,12 +1,12 @@
-import apiBack from "../../services/apiBack";
-import { useState, useEffect } from "react";
-import { styled } from "@mui/material/styles";
+import { Box, Typography } from "@mui/material";
 import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
+import { styled } from "@mui/material/styles";
+import { useEffect, useState } from "react";
 import Slider from "../../components/Slider/Slider";
+import apiBack from "../../services/apiBack";
 import "./styles.css";
-import { Typography, Box } from "@mui/material";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,

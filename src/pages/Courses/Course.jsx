@@ -1,10 +1,10 @@
-import Box from "@mui/material/Box";
-import Drawer from "@mui/material/Drawer";
 import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
+import Drawer from "@mui/material/Drawer";
 import Toolbar from "@mui/material/Toolbar";
+import AccordionCourses from "../../components/AccordionCourses";
 import Navbar from "../../components/Navbar/Navbar";
-import AccordionCustom from "../../components/AccordionCustom";
 
 const drawerWidth = 240;
 
@@ -95,7 +95,7 @@ function Courses() {
         <Toolbar />
         <Box sx={{ overflow: "auto" }}>
           {teste?.map(({ title, _id, courses }) => (
-            <AccordionCustom key={_id} title={title} courses={courses} />
+            <AccordionCourses key={_id} title={title} courses={courses} />
           ))}
         </Box>
       </Drawer>

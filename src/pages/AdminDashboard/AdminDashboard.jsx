@@ -1,15 +1,15 @@
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import {
-  Typography,
-  Grid,
-  Box,
-  Button,
   Accordion,
   AccordionSummary,
-  AccordionDetails,
-  Chip,
+  Box,
+  Button,
+  Grid,
+  Typography,
 } from "@mui/material";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import React from "react";
+import AccordionDetailsCourses from "../../components/AccordionDetailsAdminDash/AccordionDetailsCourses";
+import AccordionDetailsTrails from "../../components/AccordionDetailsAdminDash/AccordionDetailsTrails";
 import Navbar from "../../components/Navbar/Navbar";
 import "./adminDashboard.css";
 
@@ -25,6 +25,17 @@ const style = {
   p: 4,
 };
 
+const titleTrails = [
+  { title: "Desenvolvimento Full Stack" },
+  { title: "UX/UI Design" },
+  { title: "Quality Assurance (QA)" },
+];
+const titleCourses = [
+  { trail: "Full Stack", title: "ReactJS", author: "Alura" },
+  { trail: "Full Stack", title: "Migração de Carreira", author: "FCamara" },
+  { trail: "UX/UI Design", title: "Culture Code", author: "FCamara" },
+];
+
 function AdminDashboard() {
   return (
     <>
@@ -38,9 +49,7 @@ function AdminDashboard() {
         <Grid item xs={6} alignItems="center" textAlign="center" marginTop={12}>
           <Box>
             <Typography variant="h1">Olá, administrador(a)</Typography>
-            <Typography variant="h5">
-              O que você quer fazer hoje?
-            </Typography>
+            <Typography variant="h5">O que você quer fazer hoje?</Typography>
           </Box>
           <Box>
             <Button variant="contained" className="mg-top admin-dash-btn">
@@ -62,75 +71,10 @@ function AdminDashboard() {
               >
                 <Typography variant="h5">Trilhas</Typography>
               </AccordionSummary>
-              <AccordionDetails>
-                <Box
-                  display="flex"
-                  justifyContent="space-between"
-                  alignItems="center"
-                >
-                  <Typography textAlign="center">
-                    Desenvolvimento Full Stack
-                  </Typography>
-                  <Box>
-                    <Button
-                      variant="contained"
-                      size="small"
-                      className="admin-dash-btn"
-                    >
-                      Atualizar
-                    </Button>
-                    <Button variant="contained" size="small">
-                      Deletar
-                    </Button>
-                  </Box>
-                </Box>
-              </AccordionDetails>
 
-              <AccordionDetails>
-                <Box
-                  display="flex"
-                  justifyContent="space-between"
-                  alignItems="center"
-                >
-                  <Typography textAlign="center">UX/UI Design</Typography>
-                  <Box>
-                    <Button
-                      variant="contained"
-                      size="small"
-                      className="admin-dash-btn"
-                    >
-                      Atualizar
-                    </Button>
-                    <Button variant="contained" size="small">
-                      Deletar
-                    </Button>
-                  </Box>
-                </Box>
-              </AccordionDetails>
-
-              <AccordionDetails>
-                <Box
-                  display="flex"
-                  justifyContent="space-between"
-                  alignItems="center"
-                >
-                  <Typography textAlign="center">
-                    QA (Quality Assurance)
-                  </Typography>
-                  <Box>
-                    <Button
-                      variant="contained"
-                      size="small"
-                      className="admin-dash-btn"
-                    >
-                      Atualizar
-                    </Button>
-                    <Button variant="contained" size="small">
-                      Deletar
-                    </Button>
-                  </Box>
-                </Box>
-              </AccordionDetails>
+              {titleTrails?.map(({ title }) => (
+                <AccordionDetailsTrails key={title} title={title} />
+              ))}
             </Accordion>
             <Accordion>
               <AccordionSummary
@@ -140,55 +84,13 @@ function AdminDashboard() {
               >
                 <Typography variant="h5">Cursos</Typography>
               </AccordionSummary>
-              <AccordionDetails>
-                <Box
-                  display="flex"
-                  justifyContent="space-between"
-                  alignItems="center"
-                >
-                  <Chip label="Full Stack" />
-                  <Typography textAlign="center">
-                    Migração de Carreira
-                  </Typography>
-                  <Typography textAlign="center">FCamara</Typography>
-                  <Box>
-                    <Button
-                      variant="contained"
-                      size="small"
-                      className="admin-dash-btn"
-                    >
-                      Atualizar
-                    </Button>
-                    <Button variant="contained" size="small">
-                      Deletar
-                    </Button>
-                  </Box>
-                </Box>
-              </AccordionDetails>
-
-              <AccordionDetails>
-                <Box
-                  display="flex"
-                  justifyContent="space-between"
-                  alignItems="center"
-                >
-                  <Chip label="UX/UI Design" />
-                  <Typography textAlign="center">Culture Code</Typography>
-                  <Typography textAlign="center">Orange Juice</Typography>
-                  <Box>
-                    <Button
-                      variant="contained"
-                      size="small"
-                      className="admin-dash-btn"
-                    >
-                      Atualizar
-                    </Button>
-                    <Button variant="contained" size="small">
-                      Deletar1
-                    </Button>
-                  </Box>
-                </Box>
-              </AccordionDetails>
+              {titleCourses?.map(({ trail, title, author }) => (
+                <AccordionDetailsCourses
+                  title={title}
+                  trail={trail}
+                  author={author}
+                />
+              ))}
             </Accordion>
           </Box>
         </Grid>
