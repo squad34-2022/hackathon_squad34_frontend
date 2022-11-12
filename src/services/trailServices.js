@@ -1,23 +1,31 @@
 import apiBack from "./apiBack";
 
 async function getAll() {
-  const { data } = await apiBack.get("/trails");
-  return data;
+  try {
+    const response = await apiBack.get("/trails");
+    return response;
+  } catch (error) {
+    return error.response;
+  }
 }
 
 async function add({ title, description }) {
   try {
-    const response = await apiBack.post("/trails", { title, description });
-
-    if (response.status === 200) {
-      localStorage.setItem("token", response.data.token);
-      localStorage.setItem("user", JSON.stringify(response.data.user));
-    }
+    const response = await apiBack.post(
+      "/trails",
+      { title, description },
+      {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      }
+    );
     return response;
   } catch (error) {
-    console.error(error.response.data.error);
+    return error.response;
   }
 }
+
 async function getById(id) {
   try {
     const response = await apiBack.get(`/trails/${id}`, {
@@ -25,11 +33,12 @@ async function getById(id) {
         Authorization: "Bearer " + localStorage.getItem("token"),
       },
     });
-    return response.data;
+    return response;
   } catch (error) {
-    console.error(error.response.data.error);
+    return error;
   }
 }
+
 async function update(id, { title, description }) {
   try {
     const response = await apiBack.put(
@@ -46,7 +55,7 @@ async function update(id, { title, description }) {
     );
     return response;
   } catch (error) {
-    console.error(error.response.data.error);
+    return error.response;
   }
 }
 async function remove(id) {
@@ -58,7 +67,7 @@ async function remove(id) {
     });
     return response;
   } catch (error) {
-    console.error(error.response.data.error);
+    return error.response;
   }
 }
 
