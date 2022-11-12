@@ -7,36 +7,39 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AccordionDetailsCourses from "../../components/AccordionDetailsAdminDash/AccordionDetailsCourses";
 import AccordionDetailsTrails from "../../components/AccordionDetailsAdminDash/AccordionDetailsTrails";
+import ModalCursos from "../../components/ModalCursos/ModalCursos";
+import ModalTrilhas from "../../components/ModalTrilhas/ModalTrilhas";
 import Navbar from "../../components/Navbar/Navbar";
+import CourseServices from "../../services/coursesServices";
+import TrailServices from "../../services/trailServices";
 import "./adminDashboard.css";
 
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
-
-const titleTrails = [
-  { title: "Desenvolvimento Full Stack" },
-  { title: "UX/UI Design" },
-  { title: "Quality Assurance (QA)" },
-];
-const titleCourses = [
-  { trail: "Full Stack", title: "ReactJS", author: "Alura" },
-  { trail: "Full Stack", title: "Migração de Carreira", author: "FCamara" },
-  { trail: "UX/UI Design", title: "Culture Code", author: "FCamara" },
-];
-
 function AdminDashboard() {
+  const [openModalCourse, setOpenModalCourse] = useState(false);
+  const handleCloseModalCourse = () => setOpenModalCourse(false);
+  const handleOpenModalCourse = () => setOpenModalCourse(true);
+
+  const [trails, setTrails] = useState([]);
+  const [courses, setCourses] = useState([]);
+  console.log(courses);
+
+  const [openModalTrail, setOpenModalTrail] = useState(false);
+  const handleCloseModalTrail = () => setOpenModalTrail(false);
+  const handleOpenModalTrail = () => setOpenModalTrail(true);
+
+  useEffect(() => {
+    TrailServices.getAll()
+      .then(({ data }) => setTrails(data))
+      .catch((error) => console.log(error));
+
+    CourseServices.getAll()
+      .then(({ data }) => setCourses(data))
+      .catch((error) => console.log(error));
+  }, []);
+
   return (
     <>
       <Navbar />
@@ -48,14 +51,24 @@ function AdminDashboard() {
       >
         <Grid item xs={6} alignItems="center" textAlign="center" marginTop={12}>
           <Box>
-            <Typography variant="h1">Olá, administrador(a)</Typography>
+            <Typography variant="h1">
+              Olá, {JSON.parse(localStorage.getItem("user")).name}
+            </Typography>
             <Typography variant="h5">O que você quer fazer hoje?</Typography>
           </Box>
           <Box>
-            <Button variant="contained" className="mg-top admin-dash-btn">
+            <Button
+              variant="contained"
+              className="mg-top admin-dash-btn"
+              onClick={handleOpenModalTrail}
+            >
               Adicionar Trilha
             </Button>
-            <Button variant="contained" className="mg-top">
+            <Button
+              variant="contained"
+              className="mg-top"
+              onClick={handleOpenModalCourse}
+            >
               Adicionar Curso
             </Button>
           </Box>
@@ -72,8 +85,8 @@ function AdminDashboard() {
                 <Typography variant="h5">Trilhas</Typography>
               </AccordionSummary>
 
-              {titleTrails?.map(({ title }) => (
-                <AccordionDetailsTrails key={title} title={title} />
+              {trails?.map(({ _id, title }) => (
+                <AccordionDetailsTrails key={_id} title={title} />
               ))}
             </Accordion>
             <Accordion>
@@ -84,8 +97,9 @@ function AdminDashboard() {
               >
                 <Typography variant="h5">Cursos</Typography>
               </AccordionSummary>
-              {titleCourses?.map(({ trail, title, author }) => (
+              {courses?.map(({ _id, trail, title, author }) => (
                 <AccordionDetailsCourses
+                  key={_id}
                   title={title}
                   trail={trail}
                   author={author}
@@ -94,6 +108,15 @@ function AdminDashboard() {
             </Accordion>
           </Box>
         </Grid>
+        <ModalCursos
+          open={openModalCourse}
+          handleClose={handleCloseModalCourse}
+          trails={trails}
+        />
+        <ModalTrilhas
+          open={openModalTrail}
+          handleClose={handleCloseModalTrail}
+        />
       </Grid>
     </>
   );

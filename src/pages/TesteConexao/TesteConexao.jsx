@@ -6,21 +6,11 @@ import TrailServices from "../../services/trailServices";
 import UserServices from "../../services/userServices";
 
 function TesteConexao() {
-  const [users, setUsers] = useState([]);
+  const [trail, setTrail] = useState([]);
 
-  useEffect(() => {
-    /*   UserServices.authenticate({ email: "kaique@teste.com", password: "123" }); */
-    /*  UserServices.getAll().then((res) => setUsers(res)); */
-    CourseServices.getAll().then((res) => console.log(res));
+  useEffect(() => {}, []);
 
-    /* "636e958666d62a27256ebb0b", {
-      name: "teste",
-      password: "123",
-      email: "123@123.com",
-    } );*/
-  }, []);
-
-  if (users.length === 0) {
+  if (trail.length === 0) {
     return (
       <div>
         <h1>Carregando</h1>
@@ -29,7 +19,12 @@ function TesteConexao() {
   } else {
     return (
       <div>
-        <h1>{users[1].name}</h1>
+        {trail?.map(({ _id, title, description, courses }) => (
+          <div key={_id}>
+            <h1>{_id}</h1>
+            <h1>{description}</h1>
+          </div>
+        ))}
       </div>
     );
   }
