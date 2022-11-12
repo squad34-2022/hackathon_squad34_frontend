@@ -1,12 +1,12 @@
-import apiBack from "../../services/apiBack";
-import { useState, useEffect } from "react";
-import { styled } from "@mui/material/styles";
+import { Box, Typography } from "@mui/material";
 import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
+import { styled } from "@mui/material/styles";
+import { useEffect, useState } from "react";
 import Slider from "../../components/Slider/Slider";
+import apiBack from "../../services/apiBack";
 import "./styles.css";
-import { Typography, Box } from "@mui/material";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   height: 10,
@@ -56,7 +56,7 @@ function Dashboard() {
         <Box className="progress-container">
           <Box className="trails-progress">
             {courses?.map(({ title, value }) => (
-              <Box>
+              <Box key={title}>
                 <Typography variant="h6" title={title}>
                   {title}
                 </Typography>
