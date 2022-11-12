@@ -1,4 +1,4 @@
-import { Grid, Box, Typography } from "@mui/material";
+import { Grid, Box, Typography, Toolbar } from "@mui/material";
 import EmailIcon from "@mui/icons-material/EmailOutlined";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import FacebookIcon from "@mui/icons-material/Facebook";
@@ -8,14 +8,14 @@ function Footer() {
   return (
     <>
       <Grid container direction="row" justifyContent="center">
-        <Grid paddingY={7} xs={4}>
-          <Box>
+        <Grid>
+          <Grid>
             <img
               src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1654865437/$khtwl6dbna"
               alt="Logo Grupo FCamara"
             />
-          </Box>
-          <Box marginLeft={2}>
+          </Grid>
+          <Grid marginLeft={2}>
             <Typography
               variant="subtitle2"
               gutterBottom
@@ -29,16 +29,15 @@ function Footer() {
                 href="https://digital.fcamara.com.br/orange-evolution"
                 className="text-decorator-none"
                 color="#fff"
-                
               >
                 Orange Evolution
               </a>
             </Typography>
-          </Box>
+          </Grid>
         </Grid>
         <Grid xs={4}>
-          <Box>
-            <Box>
+          <Grid>
+            <Grid>
               <Typography
                 variant="h5"
                 paddingY={7}
@@ -47,8 +46,8 @@ function Footer() {
               >
                 Fale Conosco:
               </Typography>
-            </Box>
-            <Box>
+            </Grid>
+            <Grid>
               <a
                 href="mailto:equipe34.2022@gmail.com"
                 target="_blank"
@@ -70,10 +69,11 @@ function Footer() {
               >
                 <FacebookIcon sx={{ color: "white" }} />
               </a>
-            </Box>
-          </Box>
+            </Grid>
+          </Grid>
         </Grid>
       </Grid>
+      <Toolbar />
     </>
   );
 }

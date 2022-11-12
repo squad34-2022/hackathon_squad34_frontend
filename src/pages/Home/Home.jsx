@@ -1,4 +1,4 @@
-import { Typography, Button, Grid, Box } from "@mui/material";
+import { Typography, Button, Grid, Box, Toolbar } from "@mui/material";
 import Footer from "../../components/Footer/Footer";
 import "./home.css";
 
@@ -11,9 +11,11 @@ function Home() {
         justifyContent="center"
         alignItems="center"
         className="bg-image"
+        mb={5}
       >
         <Grid item xs={12}>
-          <Box display="flex" justifyContent="space-around">
+          <Toolbar />
+          <Grid container justifyContent="space-evenly" gap={15}>
             <img
               src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1639661491/$s20z34nynz"
               alt="Logo Orange"
@@ -30,7 +32,7 @@ function Home() {
                 tecnologia.
               </Typography>
             </Grid>
-          </Box>
+          </Grid>
           <Grid item xs={12}>
             <Box
               display="flex"
@@ -38,65 +40,68 @@ function Home() {
               marginTop={4}
               className="home-btn"
             >
-              <a href="/cadastro" className="text-dec-none">
-                <Button variant="contained">Criar conta</Button>
-              </a>
-              <a href="/login" className="text-dec-none">
-                <Button variant="contained">Entrar</Button>
-              </a>
+              <Button href="/cadastro" variant="contained">
+                Criar conta
+              </Button>
+              <Button href="/login" variant="contained">
+                Entrar
+              </Button>
             </Box>
           </Grid>
         </Grid>
       </Grid>
 
-      <Button
+      {/* <Button
         sx={{ border: "none", width: "100%" }}
         variant="outlined"
         href="/trilhas"
+        heigth="auto"
+      > */}
+      <Grid
+        container
+        justifyContent="center"
+        alignItems="center"
+        className="bg-gradient"
+        height="auto"
       >
-        <Grid
-          container
-          direction="row"
-          justifyContent="center"
-          alignItems="center"
-          className="bg-gradient"
-        >
-          <Grid item xs={12}>
-            <Box display="flex" justifyContent="space-around">
-              <Typography variant="h3" className="home-h3">
-                Entre e conheça nossas trilhas:
+        <Grid justifyContent="center">
+          <Grid flexWrap={"wrap"} justifyContent="space-around">
+            <Typography variant="h3" className="home-h3">
+              Cadastre-se e conheça nossas trilhas:
+            </Typography>
+          </Grid>
+          <Grid display="flex" flexWrap={"wrap"}>
+            <Box flexDirection="column" textAlign="center">
+              <img
+                src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$mip3cw6frz9"
+                alt="FullStack"
+              />
+              <Typography variant="h5" className="color-white">
+                Desenvolvimento Full Stack
               </Typography>
-              <Box flexDirection="column" textAlign="center">
-                <img
-                  src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$mip3cw6frz9"
-                  alt="FullStack"
-                />
-                <Typography variant="h5" className="color-white">
-                  Desenvolvimento Full Stack
-                </Typography>
-              </Box>
-              <Box flexDirection="column" textAlign="center">
-                <img
-                  src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$orvl84rg8a"
-                  alt=""
-                />
-                <Typography variant="h5" className="color-white">
-                  UX/UI Design
-                </Typography>
-              </Box>
-              <Box flexDirection="column" textAlign="center">
-                <img
-                  src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$4nai9gbaeha"
-                  alt=""
-                />
-                <Typography variant="h5" className="color-white">
-                  QA (Quality Assurance)
-                </Typography>
-              </Box>
+            </Box>
+            <Box flexDirection="column" textAlign="center">
+              <img
+                src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$orvl84rg8a"
+                alt=""
+              />
+              <Typography variant="h5" className="color-white">
+                UX/UI Design
+              </Typography>
+            </Box>
+            <Box flexDirection="column" textAlign="center">
+              <img
+                src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$4nai9gbaeha"
+                alt=""
+              />
+              <Typography variant="h5" className="color-white">
+                QA (Quality Assurance)
+              </Typography>
             </Box>
           </Grid>
         </Grid>
-      </Button>
+      </Grid>
+      {/* </Button> */}
 
       <Footer />
     </div>
