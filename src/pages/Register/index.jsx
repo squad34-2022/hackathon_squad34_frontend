@@ -12,6 +12,9 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
+import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import UserServices from "../../services/userServices";
 import "./styles.css";
 
 function Copyright(props) {
@@ -32,14 +35,58 @@ function Copyright(props) {
   );
 }
 
-export default function SignInSide() {
-  const handleSubmit = (event) => {
+export default function Register() {
+  const navigate = useNavigate();
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
+
+    const user = {
       name: data.get("name"),
       email: data.get("email"),
       password: data.get("password"),
+    };
+
+    if (!user.name || !user.email || !user.password) {
+      toast.error("Preencha Todos os campos!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+      return;
+    }
+
+    const response = await UserServices.add(user);
+
+    if (response.status !== 200) {
+      toast.error(response.data.error, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+      return;
+    }
+
+    navigate("/dashboard");
+    toast.success("Bem Vindo!!", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
     });
   };
 
@@ -128,6 +175,18 @@ export default function SignInSide() {
           </Box>
         </Box>
       </Grid>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </Grid>
   );
 }

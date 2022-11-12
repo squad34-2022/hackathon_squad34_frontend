@@ -50,7 +50,7 @@ function Dashboard() {
     return (
       <>
         <Box mt={5} ml={40}>
-          <Typography variant="h1">Olá, {users[0].name}</Typography>
+          <Typography variant="h1">Olá, {users[1].name}</Typography>
           <Typography variant="h5">Veja seu progresso nas trilhas:</Typography>
         </Box>
         <Box className="progress-container">

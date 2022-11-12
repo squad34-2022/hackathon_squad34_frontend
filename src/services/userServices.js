@@ -19,7 +19,7 @@ async function authenticate({ password, email }) {
     return error.response;
   }
 }
-async function register({ name, password, email }) {
+async function add({ name, password, email }) {
   try {
     const response = await apiBack.post("/users", { name, password, email });
 
@@ -30,7 +30,7 @@ async function register({ name, password, email }) {
 
     return response;
   } catch (error) {
-    console.error(error.response.data.error);
+    return error.response;
   }
 }
 async function update(id, { name, password, email }) {
@@ -68,7 +68,7 @@ async function remove(id) {
 
 const UserServices = {
   getAll,
-  register,
+  add,
   update,
   authenticate,
   remove,

@@ -31,7 +31,7 @@ function Copyright(props) {
   );
 }
 
-export default function SignInSide() {
+export default function Login() {
   const navigate = useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -41,6 +41,20 @@ export default function SignInSide() {
       email: data.get("email"),
       password: data.get("password"),
     };
+
+    if (!user.email || !user.password) {
+      toast.error("Preencha todos os campos!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+      return;
+    }
 
     const response = await UserServices.authenticate(user);
 
