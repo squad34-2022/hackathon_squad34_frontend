@@ -4,6 +4,7 @@ import LinearProgress, {
 } from "@mui/material/LinearProgress";
 import { styled } from "@mui/material/styles";
 import Slider from "../../components/Slider/Slider";
+import Navbar from "../../components/Navbar/Navbar";
 import "./styles.css";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
@@ -55,8 +56,11 @@ function Dashboard() {
         alignItems="center"
         gap={3}
       >
+        <Navbar />
         <Box>
-          <Typography variant="h1">Olá, {users[0].name}</Typography>
+          <Typography marginTop={8} variant="h1">
+            Olá, {users[0].name}
+          </Typography>
           <Typography variant="h5">Veja seu progresso nas trilhas:</Typography>
         </Box>
         <Grid className="progress-container">
