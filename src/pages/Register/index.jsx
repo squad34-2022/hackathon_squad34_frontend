@@ -14,6 +14,7 @@ import Typography from "@mui/material/Typography";
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import UserServices from "../../services/userServices";
 import "./styles.css";
 
@@ -64,7 +65,7 @@ export default function Register() {
     const response = await UserServices.add(user);
 
     if (response.status !== 200) {
-      toast.error(response.data.error, {
+      toast.error(response.response.data.error, {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,

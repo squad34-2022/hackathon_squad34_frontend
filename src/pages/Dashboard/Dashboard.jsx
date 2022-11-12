@@ -1,11 +1,14 @@
+import { ConstructionOutlined } from "@mui/icons-material";
 import { Box, Typography } from "@mui/material";
 import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
 import { styled } from "@mui/material/styles";
 import { useEffect, useState } from "react";
+import Navbar from "../../components/Navbar/Navbar";
 import Slider from "../../components/Slider/Slider";
 import apiBack from "../../services/apiBack";
+import UserServices from "../../services/userServices";
 import "./styles.css";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
@@ -25,12 +28,10 @@ function Dashboard() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    apiBack
-      .get("/users")
+    const userLogged = JSON.parse(localStorage.getItem("user"));
+    UserServices.getById(userLogged._id)
       .then((res) => setUsers(res.data))
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((error) => console.log(error));
   }, []);
 
   const courses = [
@@ -50,7 +51,7 @@ function Dashboard() {
     return (
       <>
         <Box mt={5} ml={40}>
-          <Typography variant="h1">Olá, {users[1].name}</Typography>
+          <Typography variant="h1">Olá, {users.name}</Typography>
           <Typography variant="h5">Veja seu progresso nas trilhas:</Typography>
         </Box>
         <Box className="progress-container">

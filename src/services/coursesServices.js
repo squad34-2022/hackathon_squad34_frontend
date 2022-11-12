@@ -1,42 +1,23 @@
 import apiBack from "./apiBack";
 
 async function getAll() {
-  const { data } = await apiBack.get("/courses");
-  return data;
-}
-
-async function add({ name, password, email }) {
   try {
-    const response = await apiBack.post("/courses", { name, password, email });
-
-    if (response.status === 200) {
-      localStorage.setItem("token", response.data.token);
-      localStorage.setItem("user", JSON.stringify(response.data.user));
-    }
+    const response = await apiBack.get("/courses");
     return response;
   } catch (error) {
-    console.error(error.response.data.error);
+    return error.response;
   }
 }
-async function getById(id) {
+async function add({ title, type, author, link, trail }) {
   try {
-    const response = await apiBack.get(`/courses/${id}`, {
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
-    });
-    return response.data;
-  } catch (error) {
-    console.error(error.response.data.error);
-  }
-}
-async function update(id, { title, description }) {
-  try {
-    const response = await apiBack.put(
-      `/courses/${id}`,
+    const response = await apiBack.post(
+      "/courses",
       {
         title,
-        description,
+        type,
+        author,
+        link,
+        trail,
       },
       {
         headers: {
@@ -46,7 +27,35 @@ async function update(id, { title, description }) {
     );
     return response;
   } catch (error) {
-    console.error(error.response.data.error);
+    return error.response;
+  }
+}
+async function getById(id) {
+  try {
+    const response = await apiBack.get(`/courses/${id}`, {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("token"),
+      },
+    });
+    return response;
+  } catch (error) {
+    return error.response;
+  }
+}
+async function update(id, { title, type, author, link, trail }) {
+  try {
+    const response = await apiBack.patch(
+      `/courses/${id}`,
+      { title, type, author, link, trail },
+      {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      }
+    );
+    return response;
+  } catch (error) {
+    return error.response;
   }
 }
 async function remove(id) {
@@ -58,7 +67,7 @@ async function remove(id) {
     });
     return response;
   } catch (error) {
-    console.error(error.response.data.error);
+    return error.response;
   }
 }
 
