@@ -1,13 +1,13 @@
-import { Grid, Box, Typography, Toolbar } from "@mui/material";
 import EmailIcon from "@mui/icons-material/EmailOutlined";
-import GitHubIcon from "@mui/icons-material/GitHub";
 import FacebookIcon from "@mui/icons-material/Facebook";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import { Grid, Toolbar, Typography } from "@mui/material";
 import "./styles.css";
 
 function Footer() {
   return (
     <>
-      <Grid container direction="row" justifyContent="center">
+      <Grid display="flex" justifyContent="center">
         <Grid>
           <Grid>
             <img
@@ -72,6 +72,7 @@ function Footer() {
             </Grid>
           </Grid>
         </Grid>
+        <Toolbar />
       </Grid>
       <Toolbar />
     </>

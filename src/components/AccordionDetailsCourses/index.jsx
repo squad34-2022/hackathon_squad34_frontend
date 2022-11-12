@@ -9,7 +9,7 @@ import {
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
-function AccordionDetailsCustom({ title, type, author, link }) {
+function AccordionDetailsCourses({ title, type, author, link }) {
   return (
     <AccordionDetails>
       <Box display={"flex"} justifyContent={"space-between"}>
@@ -30,4 +30,4 @@ function AccordionDetailsCustom({ title, type, author, link }) {
   );
 }
 
-export default AccordionDetailsCustom;
+export default AccordionDetailsCourses;

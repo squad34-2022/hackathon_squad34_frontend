@@ -1,4 +1,4 @@
-import { Typography, Button, Grid, Box, Toolbar } from "@mui/material";
+import { Box, Button, Grid, Toolbar, Typography } from "@mui/material";
 import Footer from "../../components/Footer/Footer";
 import "./home.css";
 
