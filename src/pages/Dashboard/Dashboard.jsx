@@ -1,11 +1,9 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
 import { styled } from "@mui/material/styles";
-import { useEffect, useState } from "react";
 import Slider from "../../components/Slider/Slider";
-import apiBack from "../../services/apiBack";
 import "./styles.css";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
@@ -21,17 +19,19 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
   },
 }));
 
-function Dashboard() {
-  const [users, setUsers] = useState([]);
+const users = [{ name: "Octavio" }];
 
-  useEffect(() => {
-    apiBack
-      .get("/users")
-      .then((res) => setUsers(res.data))
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+function Dashboard() {
+  // const [users, setUsers] = useState([]);
+
+  // useEffect(() => {
+  //   apiBack
+  //     .get("/users")
+  //     .then((res) => setUsers(res.data))
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, []);
 
   const courses = [
     { title: "UX/UI Design", value: 10 },
@@ -48,12 +48,18 @@ function Dashboard() {
     );
   } else {
     return (
-      <>
-        <Box mt={5} ml={40}>
-          <Typography variant="h1">Olá, {users[1].name}</Typography>
+      <Grid
+        container
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+        gap={3}
+      >
+        <Box>
+          <Typography variant="h1">Olá, {users[0].name}</Typography>
           <Typography variant="h5">Veja seu progresso nas trilhas:</Typography>
         </Box>
-        <Box className="progress-container">
+        <Grid className="progress-container">
           <Box className="trails-progress">
             {courses?.map(({ title, value }) => (
               <Box key={title}>
@@ -70,15 +76,15 @@ function Dashboard() {
               </Box>
             ))}
           </Box>
-        </Box>
-        <Box mt={30} ml={40}>
+        </Grid>
+        <Box>
           <Typography variant="h1">Comunidade</Typography>
           <Typography variant="h5">Conecte-se com outros membros:</Typography>
-          <Box ml={10} width={700}>
+          <Box width={500}>
             <Slider />
           </Box>
         </Box>
-      </>
+      </Grid>
     );
   }
 }

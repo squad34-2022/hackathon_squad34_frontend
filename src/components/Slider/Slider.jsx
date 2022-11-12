@@ -1,3 +1,4 @@
+import { Box } from "@mui/material";
 import AwesomeSlider from "react-awesome-slider";
 
 import "react-awesome-slider/dist/styles.css";
@@ -14,9 +15,9 @@ function SliderTeste() {
   return (
     <AwesomeSlider transitionDelay={100}>
       {imagesSlider.map((image, i) => (
-        <div>
-          <img src={imagesSlider[i]} alt="" />
-        </div>
+        <Box>
+          <img width="100%" src={imagesSlider[i]} alt="" />
+        </Box>
       ))}
     </AwesomeSlider>
   );
