@@ -1,16 +1,14 @@
 import {
+  Button,
   Card,
+  CardActionArea,
   CardContent,
   CardMedia,
-  Typography,
-  CardActionArea,
   Grid,
-  Button,
-  Modal,
-  Box,
+  Typography,
 } from "@mui/material";
-import imgDeveloper from "../../assets/developer.jpg";
 import imgDesigner from "../../assets/designer.jpg";
+import imgDeveloper from "../../assets/developer.jpg";
 import imgQA from "../../assets/qa.jpg";
 
 const trails = [
@@ -64,12 +62,7 @@ function CardTrail() {
           <Button>
             <Card sx={{ maxWidth: 345 }}>
               <CardActionArea>
-                <CardMedia
-                  component="img"
-                  height="200"
-                  image={image}
-                  alt="green iguana"
-                />
+                <CardMedia component="img" height="200" image={image} alt="" />
                 <CardContent>
                   <Typography
                     gutterBottom

@@ -1,21 +1,4 @@
-.welcome-container {
-  position: absolute;
-  left: calc(50% - 347px/2 - 406.5px);
-  top: 50px;
-}
-
-.progress-container {
-  position: absolute;
-  width: 347px;
-  height: 87px;
-  left: calc(50% - 347px/2 - 406.5px);
-  top: 250px;
-}
-
-.comunity-container {
-  position: absolute;
-  width: 450px;
-  height: 87px;
-  left: calc(50% - 450px/2 - 355px);
-  top: 450px;
+*{
+  margin: 0;
+  padding: 0;
 }
