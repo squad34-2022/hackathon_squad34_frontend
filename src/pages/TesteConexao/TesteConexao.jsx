@@ -1,17 +1,23 @@
 // import apiBack from "../../services/apiBack";
+import { useEffect, useState } from "react";
 import apiBack from "../../services/apiBack";
-import { useState, useEffect } from "react";
+import CourseServices from "../../services/coursesServices";
+import TrailServices from "../../services/trailServices";
+import UserServices from "../../services/userServices";
 
 function TesteConexao() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    apiBack
-      .get("/users")
-      .then((res) => setUsers(res.data))
-      .catch((err) => {
-        console.log(err);
-      });
+    /*   UserServices.authenticate({ email: "kaique@teste.com", password: "123" }); */
+    /*  UserServices.getAll().then((res) => setUsers(res)); */
+    CourseServices.getAll().then((res) => console.log(res));
+
+    /* "636e958666d62a27256ebb0b", {
+      name: "teste",
+      password: "123",
+      email: "123@123.com",
+    } );*/
   }, []);
 
   if (users.length === 0) {
@@ -23,7 +29,7 @@ function TesteConexao() {
   } else {
     return (
       <div>
-        <h1>{users.name}</h1>
+        <h1>{users[1].name}</h1>
       </div>
     );
   }
