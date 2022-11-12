@@ -16,7 +16,7 @@ async function authenticate({ password, email }) {
 
     return response;
   } catch (error) {
-    console.error(error.response.data.error);
+    return error.response;
   }
 }
 async function register({ name, password, email }) {

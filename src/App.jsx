@@ -1,16 +1,16 @@
 import { ThemeProvider } from "@mui/material";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import ContentPage from "./components/ContentPage/ContentPage";
+import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
 import Course from "./pages/Courses/Course";
 import Dashboard from "./pages/Dashboard/Dashboard";
-import Trilhas from "./pages/Trilhas/Trilhas";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import theme from "./themes/theme";
-import AdminDashboard from "./pages/AdminDashboard/AdminDashboard";
-import ContentPage from "./components/ContentPage/ContentPage";
 import TesteConexao from "./pages/TesteConexao/TesteConexao";
-
+import Trilhas from "./pages/Trilhas/Trilhas";
+import theme from "./themes/theme";
 function App() {
   return (
     <ThemeProvider theme={theme}>
@@ -27,6 +27,7 @@ function App() {
           <Route path="/testeconexao" element={<TesteConexao />} />
         </Routes>
       </BrowserRouter>
+      <ToastContainer />
     </ThemeProvider>
   );
 }
