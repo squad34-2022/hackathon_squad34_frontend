@@ -1,10 +1,13 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
 import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
 import { styled } from "@mui/material/styles";
+import { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Slider from "../../components/Slider/Slider";
+import TrailServices from "../../services/trailServices";
+import UserServices from "../../services/userServices";
 import "./styles.css";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
@@ -22,13 +25,18 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 
 function Dashboard() {
   const user = JSON.parse(localStorage.getItem("user"));
+  const [trails, setTrails] = useState([]);
+  const [users, setUsers] = useState([]);
 
-  const courses = [
-    { title: "UX/UI Design", value: 10 },
-    { title: "Web", value: 50 },
-    { title: "QA", value: 100 },
-    { title: "Futura", value: 0 },
-  ];
+  useEffect(() => {
+    TrailServices.getAll()
+      .then(({ data }) => setTrails(data))
+      .catch((error) => console.log(error));
+
+    UserServices.getAll()
+      .then(({ data }) => setTrails(data))
+      .catch((error) => console.log(error));
+  }, []);
 
   return (
     <>
@@ -40,7 +48,15 @@ function Dashboard() {
         direction="row"
         justifyContent="center"
       >
-        <Grid container item xs={5} mt={12}>
+        <Grid
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center"
+          xs={5}
+          mt={12}
+          gap={5}
+        >
           <Box
             display="flex"
             flexDirection="column"
@@ -55,7 +71,7 @@ function Dashboard() {
             </Typography>
           </Box>
           <Box justifyContent="center" alignItems="center">
-            {courses?.map(({ title, value }) => (
+            {trails?.map(({ title }) => (
               <Box key={title}>
                 <Typography variant="h6" title={title}>
                   {title}
@@ -64,13 +80,19 @@ function Dashboard() {
                   <BorderLinearProgress
                     sx={{ width: 500 }}
                     variant="determinate"
-                    value={value}
+                    value={50}
                   />
                 </Box>
               </Box>
             ))}
           </Box>
+          <Box>
+            <Button href="/cursos" variant="contained">
+              Acessar Aulas
+            </Button>
+          </Box>
         </Grid>
+
         <Grid
           container
           item
