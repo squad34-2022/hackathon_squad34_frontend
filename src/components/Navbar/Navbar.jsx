@@ -23,7 +23,7 @@ export default function Navbar() {
           >
             🍊 Orange Evolution
           </Typography>
-          <a href="/" className="text-dec-none">
+          <a href="/dashboard" className="text-dec-none">
             <Button className="navbar-menu">Home</Button>
           </a>
           <a href="/trilhas" className="text-dec-none">
