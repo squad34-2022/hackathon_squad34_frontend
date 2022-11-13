@@ -1,3 +1,4 @@
+import Cookies from "js-cookie";
 import apiBack from "./apiBack";
 
 async function getAll() {
@@ -14,40 +15,22 @@ async function getAll() {
 }
 async function getById(id) {
   try {
-    const response = await apiBack.get(`/users/${id}`, {
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
-    });
+    const response = await apiBack.get(`/users/${id}`);
     return response;
   } catch (error) {
     return error.response;
   }
 }
-
 async function authenticate({ password, email }) {
-  try {
-    const response = await apiBack.post("/users/login", { password, email });
-
-    if (response.status === 200) {
-      localStorage.setItem("token", response.data.token);
-      localStorage.setItem("user", JSON.stringify(response.data.user));
-    }
-
-    return response;
-  } catch (error) {
-    return error.response;
-  }
+  const response = await apiBack.post("/users/login", { password, email });
+  return response.data;
 }
+
 async function add({ name, password, email }) {
   try {
     const response = await apiBack.post("/users", { name, password, email });
-
-    if (response.status === 200) {
-      localStorage.setItem("token", response.data.token);
-      localStorage.setItem("user", JSON.stringify(response.data.user));
-    }
-
+    Cookies.set("token", response.data.token, { expires: 1 });
+    Cookies.set("user", response.data.user._id, { expires: 1 });
     return response;
   } catch (error) {
     return error.response;

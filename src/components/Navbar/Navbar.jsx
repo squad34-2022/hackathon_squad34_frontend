@@ -4,10 +4,12 @@ import Button from "@mui/material/Button";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 import "./navbar.css";
 
 export default function Navbar() {
+  const { singOut } = React.useContext(AuthContext);
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
@@ -31,11 +33,10 @@ export default function Navbar() {
               Trilhas
             </Button>
           </a>
-          <a href="/" className="text-dec-none">
-            <Button className="navbar-menu" color="inherit">
-              Sair
-            </Button>
-          </a>
+
+          <Button className="navbar-menu" color="inherit" onClick={singOut}>
+            Sair
+          </Button>
         </Toolbar>
       </AppBar>
     </Box>

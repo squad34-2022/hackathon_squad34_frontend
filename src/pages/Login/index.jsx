@@ -6,15 +6,13 @@ import Link from "@mui/material/Link";
 import Paper from "@mui/material/Paper";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
-import * as React from "react";
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { AuthContext } from "../../context/AuthContext";
 import UserServices from "../../services/userServices";
 import "./styles.css";
-
-
-
 
 function Copyright(props) {
   return (
@@ -35,8 +33,11 @@ function Copyright(props) {
 }
 
 export default function Login() {
+  const { singIn } = useContext(AuthContext);
+
   const navigate = useNavigate();
-  const handleSubmit = async (event) => {
+
+  const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
 
@@ -59,33 +60,12 @@ export default function Login() {
       return;
     }
 
-    const response = await UserServices.authenticate(user);
-
-    if (response.status !== 200) {
-      toast.error(response.data.error, {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-      });
-      return;
-    }
-
-    navigate("/dashboard");
-    toast.success("Bem Vindo!!", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
+    singIn(user)
+      .then(() => {
+        toast.success("Bem Vindo!!");
+        navigate("/dashboard");
+      })
+      .catch((error) => toast.error(error.response.data.error));
   };
 
   return (

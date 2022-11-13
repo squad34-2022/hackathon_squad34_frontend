@@ -7,12 +7,13 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import AccordionDetailsCourses from "../../components/AccordionDetailsAdminDash/AccordionDetailsCourses";
 import AccordionDetailsTrails from "../../components/AccordionDetailsAdminDash/AccordionDetailsTrails";
 import ModalCursos from "../../components/ModalCursos/ModalCursos";
 import ModalTrilhas from "../../components/ModalTrilhas/ModalTrilhas";
 import Navbar from "../../components/Navbar/Navbar";
+import { AuthContext } from "../../context/AuthContext";
 import CourseServices from "../../services/coursesServices";
 import TrailServices from "../../services/trailServices";
 import "./adminDashboard.css";
@@ -24,7 +25,6 @@ function AdminDashboard() {
 
   const [trails, setTrails] = useState([]);
   const [courses, setCourses] = useState([]);
-  console.log(courses);
 
   const [openModalTrail, setOpenModalTrail] = useState(false);
   const handleCloseModalTrail = () => setOpenModalTrail(false);
@@ -40,6 +40,8 @@ function AdminDashboard() {
       .catch((error) => console.log(error));
   }, []);
 
+  const { user } = useContext(AuthContext);
+
   return (
     <>
       <Navbar />
@@ -51,9 +53,7 @@ function AdminDashboard() {
       >
         <Grid item xs={6} alignItems="center" textAlign="center" marginTop={12}>
           <Box>
-            <Typography variant="h1">
-              Olá, {JSON.parse(localStorage.getItem("user")).name}
-            </Typography>
+            <Typography variant="h1">Olá, {user?.name}</Typography>
             <Typography variant="h5">O que você quer fazer hoje?</Typography>
           </Box>
           <Box>

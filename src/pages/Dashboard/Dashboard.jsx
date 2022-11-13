@@ -3,8 +3,10 @@ import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
 import { styled } from "@mui/material/styles";
+import { useContext } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Slider from "../../components/Slider/Slider";
+import { AuthContext } from "../../context/AuthContext";
 import "./styles.css";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
@@ -21,7 +23,7 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 }));
 
 function Dashboard() {
-  const user = JSON.parse(localStorage.getItem("user"));
+  const { user } = useContext(AuthContext);
 
   const courses = [
     { title: "UX/UI Design", value: 10 },
@@ -41,7 +43,7 @@ function Dashboard() {
       <Navbar />
       <Box>
         <Typography marginTop={8} variant="h1">
-          Olá, {user.name}
+          Olá, {user?.name}
         </Typography>
         <Typography variant="h5">Veja seu progresso nas trilhas:</Typography>
       </Box>

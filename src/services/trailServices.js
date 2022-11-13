@@ -13,12 +13,12 @@ async function add({ title, description }) {
   try {
     const response = await apiBack.post(
       "/trails",
-      { title, description },
-      {
+      { title, description }
+      /* {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token"),
         },
-      }
+      } */
     );
     return response;
   } catch (error) {

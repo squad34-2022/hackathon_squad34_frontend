@@ -27,7 +27,9 @@ export default function ModalCursos({ open, handleClose, trails }) {
     boxShadow: 24,
     p: 4,
   };
+
   const [idTrail, setIdTrail] = useState("Trilhas");
+
   const handleChange = (event) => {
     setIdTrail(event.target.value);
   };
