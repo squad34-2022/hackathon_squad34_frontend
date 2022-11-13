@@ -104,7 +104,9 @@ function Dashboard() {
           marginTop={12}
         >
           <Box>
-            <Typography variant="h1">Comunidade</Typography>
+            <Typography marginTop={8} variant="h1">
+              Comunidade
+            </Typography>
             <Typography variant="h5">Conecte-se com outros membros:</Typography>
             <Box
               display="flex"
