@@ -31,46 +31,71 @@ function Dashboard() {
   ];
 
   return (
-    <Grid
-      container
-      direction="column"
-      justifyContent="center"
-      alignItems="center"
-      gap={3}
-    >
+    <>
       <Navbar />
-      <Box>
-        <Typography marginTop={8} variant="h1">
-          Olá, {user.name}
-        </Typography>
-        <Typography variant="h5">Veja seu progresso nas trilhas:</Typography>
-      </Box>
-      <Grid className="progress-container">
-        <Box className="trails-progress">
-          {courses?.map(({ title, value }) => (
-            <Box key={title}>
-              <Typography variant="h6" title={title}>
-                {title}
-              </Typography>
-              <Box sx={{ flexGrow: 1 }}>
-                <BorderLinearProgress
-                  sx={{ width: 500 }}
-                  variant="determinate"
-                  value={value}
-                />
+      <Grid
+        container
+        display="flex"
+        flexWrap={"wrap"}
+        direction="row"
+        justifyContent="center"
+      >
+        <Grid container item xs={5} mt={12}>
+          <Box
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Typography marginTop={8} variant="h1">
+              Olá, {user.name}
+            </Typography>
+            <Typography variant="h5">
+              Veja seu progresso nas trilhas:
+            </Typography>
+          </Box>
+          <Box justifyContent="center" alignItems="center">
+            {courses?.map(({ title, value }) => (
+              <Box key={title}>
+                <Typography variant="h6" title={title}>
+                  {title}
+                </Typography>
+                <Box sx={{ flexGrow: 1 }}>
+                  <BorderLinearProgress
+                    sx={{ width: 500 }}
+                    variant="determinate"
+                    value={value}
+                  />
+                </Box>
               </Box>
+            ))}
+          </Box>
+        </Grid>
+        <Grid
+          container
+          item
+          xs={6}
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          textAlign="center"
+          marginTop={12}
+        >
+          <Box>
+            <Typography variant="h1">Comunidade</Typography>
+            <Typography variant="h5">Conecte-se com outros membros:</Typography>
+            <Box
+              display="flex"
+              justifyContent="center"
+              alignItems="center"
+              width={500}
+            >
+              <Slider />
             </Box>
-          ))}
-        </Box>
+          </Box>
+        </Grid>
       </Grid>
-      <Box>
-        <Typography variant="h1">Comunidade</Typography>
-        <Typography variant="h5">Conecte-se com outros membros:</Typography>
-        <Box width={500}>
-          <Slider />
-        </Box>
-      </Box>
-    </Grid>
+    </>
   );
 }
 

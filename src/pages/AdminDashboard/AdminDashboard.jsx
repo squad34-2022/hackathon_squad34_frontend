@@ -43,20 +43,20 @@ function AdminDashboard() {
   return (
     <>
       <Navbar />
-      <Grid
-        container
-        direction="column"
-        justifyContent="center"
-        alignItems="center"
-      >
-        <Grid item xs={6} alignItems="center" textAlign="center" marginTop={12}>
-          <Box>
+      <Grid container direction="row" justifyContent="center">
+        <Grid item xs={5} mt={12}>
+          <Box
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="center"
+          >
             <Typography variant="h1">
               Olá, {JSON.parse(localStorage.getItem("user")).name}
             </Typography>
             <Typography variant="h5">O que você quer fazer hoje?</Typography>
           </Box>
-          <Box>
+          <Box display="flex" justifyContent="center" alignItems="center">
             <Button
               variant="contained"
               className="mg-top admin-dash-btn"

@@ -8,8 +8,9 @@
 .bg-image {
   background-image: linear-gradient(to top, transparent 85%, black),
   url(https://d335luupugsy2.cloudfront.net/cms/files/107693/1655132576/$jp1dmh18t9g);
-  background-size: initial;
+  background-size: cover;
   min-height: 100vh;
+  background-repeat: no-repeat;
   background-attachment: fixed;
 }
 

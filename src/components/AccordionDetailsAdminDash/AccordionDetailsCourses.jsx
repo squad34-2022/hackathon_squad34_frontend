@@ -12,7 +12,7 @@ function AccordionDetailsCourses({ trail, title, author }) {
             Atualizar
           </Button>
           <Button variant="contained" size="small">
-            Deletar1
+            Deletar
           </Button>
         </Box>
       </Box>

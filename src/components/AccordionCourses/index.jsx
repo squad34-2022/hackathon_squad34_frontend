@@ -12,7 +12,7 @@ function AccordionCourses({ title, courses }) {
   return (
     <Accordion>
       <AccordionSummary>
-        <Typography variant="h5">{title}</Typography>
+        <Typography variant="h6">{title}</Typography>
       </AccordionSummary>
       <Divider />
       {courses?.map(({ _id, title, type, author, link }) => (
