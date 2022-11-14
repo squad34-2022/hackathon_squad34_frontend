@@ -7,8 +7,6 @@ import {
 import AccordionDetailsCourses from "../AccordionDetailsCourses";
 
 function AccordionCourses({ title, courses }) {
-  console.log(courses);
-
   return (
     <Accordion>
       <AccordionSummary>

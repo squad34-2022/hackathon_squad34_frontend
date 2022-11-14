@@ -52,7 +52,7 @@ function Courses() {
           ))}
         </Box>
       </Drawer>
-      <Box ml={5} container component="main" sx={{ height: "100vh" }}>
+      <Box ml={5} container="true" component="main" sx={{ height: "100vh" }}>
         <Toolbar />
         <iframe
           name="aula1"

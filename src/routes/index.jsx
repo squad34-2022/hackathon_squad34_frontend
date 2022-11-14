@@ -8,6 +8,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import TesteConexao from "../pages/TesteConexao/TesteConexao";
 import Trilhas from "../pages/Trilhas/Trilhas";
+import { AdminRoute } from "./adminRoute";
 import { PrivateRoute } from "./privateRoute";
 
 export default function Rotas() {
@@ -38,7 +39,9 @@ export default function Rotas() {
           path="/admin"
           element={
             <PrivateRoute>
-              <AdminDashboard />
+              <AdminRoute>
+                <AdminDashboard />
+              </AdminRoute>
             </PrivateRoute>
           }
         />
