@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Slider from "../../components/Slider/Slider";
 import TrailServices from "../../services/trailServices";
-import UserServices from "../../services/userServices";
 import "./styles.css";
 
 const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
@@ -26,16 +25,16 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 function Dashboard() {
   const user = JSON.parse(localStorage.getItem("user"));
   const [trails, setTrails] = useState([]);
-  const [users, setUsers] = useState([]);
+  // const [users, setUsers] = useState([]);
 
   useEffect(() => {
     TrailServices.getAll()
       .then(({ data }) => setTrails(data))
       .catch((error) => console.log(error));
 
-    UserServices.getAll()
-      .then(({ data }) => setTrails(data))
-      .catch((error) => console.log(error));
+    // UserServices.getAll()
+    //   .then(({ data }) => setTrails(data))
+    //   .catch((error) => console.log(error));
   }, []);
 
   return (
