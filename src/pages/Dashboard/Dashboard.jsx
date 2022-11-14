@@ -26,6 +26,8 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 function Dashboard() {
   const [trails, setTrails] = useState([]);
 
+  const { user } = useContext(AuthContext);
+
   useEffect(() => {
     TrailServices.getAll()
       .then(({ data }) => setTrails(data))
@@ -58,7 +60,7 @@ function Dashboard() {
             alignItems="center"
           >
             <Typography marginTop={8} variant="h1">
-              Olá, Fulano de Tal
+              Olá, {user?.name}
             </Typography>
             <Typography variant="h5">
               Veja seu progresso nas trilhas:

@@ -4,10 +4,14 @@ import Button from "@mui/material/Button";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
-
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../context/Auth";
 import "./navbar.css";
 
 export default function Navbar() {
+  const { singOut, user } = React.useContext(AuthContext);
+
+  const navigate = useNavigate();
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
@@ -31,11 +35,20 @@ export default function Navbar() {
               Trilhas
             </Button>
           </a>
-          <a href="/" className="text-dec-none">
-            <Button className="navbar-menu" color="inherit">
-              Sair
+          {user?.email.includes("@fcamara") && (
+            <Button
+              className="navbar-menu"
+              color="inherit"
+              onClick={() => {
+                navigate("/admin");
+              }}
+            >
+              Admin
             </Button>
-          </a>
+          )}
+          <Button className="navbar-menu" color="inherit" onClick={singOut}>
+            Sair
+          </Button>
         </Toolbar>
       </AppBar>
     </Box>

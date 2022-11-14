@@ -49,13 +49,17 @@ export default function Login() {
       toast.error("Preencha todos os campos!");
       return;
     }
-
     singIn(user)
-      .then((user) => {
+      .then(() => {
         toast.success("Bem Vindo!!");
         navigate("/dashboard");
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        if (error.code === "ERR_NETWORK") {
+          return toast.error("Sem Conexão com o Servidor...");
+        }
+        return toast.error(error.response.data.error);
+      });
   };
 
   return (

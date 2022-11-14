@@ -1,74 +1,28 @@
-import apiBack from "./apiBack";
+import api from "./api/api";
 
 async function getAll() {
-  try {
-    const response = await apiBack.get("/trails");
-    return response;
-  } catch (error) {
-    return error.response;
-  }
+  const response = await api.get("/trails");
+  return response;
 }
-
 async function add({ title, description }) {
-  try {
-    const response = await apiBack.post(
-      "/trails",
-      { title, description },
-      {
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-      }
-    );
-    return response;
-  } catch (error) {
-    return error.response;
-  }
+  const { data } = await api.post("/trails", { title, description });
+  return data;
 }
-
 async function getById(id) {
-  try {
-    const response = await apiBack.get(`/trails/${id}`, {
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
-    });
-    return response;
-  } catch (error) {
-    return error;
-  }
+  const { data } = await api.get(`/trails/${id}`);
+  return data;
+}
+async function update(id, { title, description }) {
+  const response = await api.put(`/trails/${id}`, {
+    title,
+    description,
+  });
+  return response;
 }
 
-async function update(id, { title, description }) {
-  try {
-    const response = await apiBack.put(
-      `/trails/${id}`,
-      {
-        title,
-        description,
-      },
-      {
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
-      }
-    );
-    return response;
-  } catch (error) {
-    return error.response;
-  }
-}
 async function remove(id) {
-  try {
-    const response = await apiBack.delete(`/trails/${id}`, {
-      headers: {
-        Authorization: "Bearer " + localStorage.getItem("token"),
-      },
-    });
-    return response;
-  } catch (error) {
-    return error.response;
-  }
+  const response = await api.delete(`/trails/${id}`);
+  return response;
 }
 
 const TrailServices = {

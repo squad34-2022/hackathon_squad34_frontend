@@ -21,20 +21,27 @@ export default function Rotas() {
         <Route
           path="/dashboard"
           element={
-            /*  <PrivateRoute> */
-            <Dashboard />
-            /* </PrivateRoute> */
+            <PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>
           }
         />
         <Route
           path="/cursos"
           element={
-            /*  <PrivateRoute> */
-            <Courses />
-            /*   </PrivateRoute> */
+            <PrivateRoute>
+              <Courses />
+            </PrivateRoute>
           }
         />
-        <Route path="/admindashboard" element={<AdminDashboard />} />
+        <Route
+          path="/admin"
+          element={
+            <PrivateRoute>
+              <AdminDashboard />
+            </PrivateRoute>
+          }
+        />
         <Route path="/conteudo" element={<ContentPage />} />
         <Route path="/testeconexao" element={<TesteConexao />} />
       </Routes>
