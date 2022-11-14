@@ -28,6 +28,7 @@ export const AuthProvider = ({ children }) => {
       api.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
 
       setAccessToken(accessToken);
+
       UserServices.getById(userId)
         .then((user) => {
           setUser(user);

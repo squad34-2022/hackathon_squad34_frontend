@@ -18,7 +18,14 @@ export default function Rotas() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/cadastro" element={<Register />} />
-        <Route path="/trilhas" element={<Trilhas />} />
+        <Route
+          path="/trilhas"
+          element={
+            <PrivateRoute>
+              <Trilhas />
+            </PrivateRoute>
+          }
+        />
         <Route
           path="/dashboard"
           element={
