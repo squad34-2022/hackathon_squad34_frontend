@@ -3,9 +3,10 @@ import LinearProgress, {
   linearProgressClasses,
 } from "@mui/material/LinearProgress";
 import { styled } from "@mui/material/styles";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Slider from "../../components/Slider/Slider";
+import { AuthContext } from "../../context/Auth";
 import TrailServices from "../../services/trailServices";
 import "./styles.css";
 
@@ -23,18 +24,12 @@ const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
 }));
 
 function Dashboard() {
-  const user = JSON.parse(localStorage.getItem("user"));
   const [trails, setTrails] = useState([]);
-  // const [users, setUsers] = useState([]);
 
   useEffect(() => {
     TrailServices.getAll()
       .then(({ data }) => setTrails(data))
       .catch((error) => console.log(error));
-
-    // UserServices.getAll()
-    //   .then(({ data }) => setTrails(data))
-    //   .catch((error) => console.log(error));
   }, []);
 
   return (
@@ -63,7 +58,7 @@ function Dashboard() {
             alignItems="center"
           >
             <Typography marginTop={8} variant="h1">
-              Olá, {user.name}
+              Olá, Fulano de Tal
             </Typography>
             <Typography variant="h5">
               Veja seu progresso nas trilhas:

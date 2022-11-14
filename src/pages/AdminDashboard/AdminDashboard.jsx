@@ -5,7 +5,7 @@ import {
   Box,
   Button,
   Grid,
-  Typography
+  Typography,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import AccordionDetailsCourses from "../../components/AccordionDetailsAdminDash/AccordionDetailsCourses";
@@ -24,17 +24,16 @@ function AdminDashboard() {
 
   const [trails, setTrails] = useState([]);
   const [courses, setCourses] = useState([]);
-  console.log(courses);
 
   const [openModalTrail, setOpenModalTrail] = useState(false);
   const handleCloseModalTrail = () => setOpenModalTrail(false);
   const handleOpenModalTrail = () => setOpenModalTrail(true);
 
   const onDelete = (_id) => {
-    TrailServices.remove(_id)
-    CourseServices.remove(_id)
+    TrailServices.remove(_id);
+    CourseServices.remove(_id);
     location.reload();
-  }
+  };
 
   useEffect(() => {
     TrailServices.getAll()
@@ -45,8 +44,6 @@ function AdminDashboard() {
       .then(({ data }) => setCourses(data))
       .catch((error) => console.log(error));
   }, []);
-
-
 
   return (
     <>
@@ -59,9 +56,7 @@ function AdminDashboard() {
             justifyContent="center"
             alignItems="center"
           >
-            <Typography variant="h1">
-              Olá, {JSON.parse(localStorage.getItem("user")).name}
-            </Typography>
+            <Typography variant="h1">Olá, fulano de tal</Typography>
             <Typography variant="h5">O que você quer fazer hoje?</Typography>
           </Box>
           <Box display="flex" justifyContent="center" alignItems="center">
@@ -93,13 +88,27 @@ function AdminDashboard() {
                 <Typography variant="h5">Trilhas</Typography>
               </AccordionSummary>
               {trails?.map(({ _id, title }) => (
-                <Box display="flex" justifyContent="space-between" alignItems="center">
+                <Box
+                  key={_id}
+                  display="flex"
+                  justifyContent="space-between"
+                  alignItems="center"
+                >
                   <AccordionDetailsTrails key={_id} title={title} />
                   <Box>
-                    <Button variant="contained" size="small" onClick={handleOpenModalTrail} className="admin-dash-btn">
+                    <Button
+                      variant="contained"
+                      size="small"
+                      onClick={handleOpenModalTrail}
+                      className="admin-dash-btn"
+                    >
                       Atualizar
                     </Button>
-                    <Button onClick={() => onDelete(_id)} variant="contained" size="small">
+                    <Button
+                      onClick={() => onDelete(_id)}
+                      variant="contained"
+                      size="small"
+                    >
                       Deletar
                     </Button>
                   </Box>
@@ -115,18 +124,31 @@ function AdminDashboard() {
                 <Typography variant="h5">Cursos</Typography>
               </AccordionSummary>
               {courses?.map(({ _id, trail, title, author }) => (
-                <Box display="flex" justifyContent="space-between" alignItems="center">
+                <Box
+                  key={_id}
+                  display="flex"
+                  justifyContent="space-between"
+                  alignItems="center"
+                >
                   <AccordionDetailsCourses
                     key={_id}
                     title={title}
                     trail={trail}
                     author={author}
                   />
-                  <Box >
-                    <Button variant="contained" size="small" className="admin-dash-btn">
+                  <Box>
+                    <Button
+                      variant="contained"
+                      size="small"
+                      className="admin-dash-btn"
+                    >
                       Atualizar
                     </Button>
-                    <Button onClick={() => onDelete(_id)} variant="contained" size="small">
+                    <Button
+                      onClick={() => onDelete(_id)}
+                      variant="contained"
+                      size="small"
+                    >
                       Deletar
                     </Button>
                   </Box>
