@@ -1,16 +1,28 @@
 // import apiBack from "../../services/apiBack";
+import { Box, Button, Divider, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
-import apiBack from "../../services/apiBack";
-import CourseServices from "../../services/coursesServices";
 import TrailServices from "../../services/trailServices";
-import UserServices from "../../services/userServices";
+
 
 function TesteConexao() {
-  const [trail, setTrail] = useState([]);
+  const [trails, setTrails] = useState([]);
 
-  useEffect(() => {}, []);
+  const onDelete = (_id) => {
+    TrailServices.remove(_id)
 
-  if (trail.length === 0) {
+  }
+
+
+
+
+  useEffect(() => {
+    TrailServices.getAll()
+      .then(({ data }) => setTrails(data))
+      .catch((error) => console.log(error));
+  }, []);
+
+
+  if (trails.length === 0) {
     return (
       <div>
         <h1>Carregando</h1>
@@ -18,14 +30,18 @@ function TesteConexao() {
     );
   } else {
     return (
-      <div>
-        {trail?.map(({ _id, title, description, courses }) => (
-          <div key={_id}>
-            <h1>{_id}</h1>
-            <h1>{description}</h1>
-          </div>
+      <div >
+        {trails?.map(({ _id, title, description }) => (
+          <Box display="flex" justifyContent="space-between">
+            <Typography>{title}</Typography>
+            <Divider />
+            <Button onClick={() => onDelete(_id)} >Delete</Button>
+          </Box>
         ))}
+
       </div>
+
+
     );
   }
 }

@@ -5,7 +5,7 @@ import {
   Box,
   Button,
   Grid,
-  Typography,
+  Typography
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import AccordionDetailsCourses from "../../components/AccordionDetailsAdminDash/AccordionDetailsCourses";
@@ -30,6 +30,13 @@ function AdminDashboard() {
   const handleCloseModalTrail = () => setOpenModalTrail(false);
   const handleOpenModalTrail = () => setOpenModalTrail(true);
 
+  const onDelete = (_id) => {
+    TrailServices.remove(_id)
+    location.reload();
+  }
+
+
+
   useEffect(() => {
     TrailServices.getAll()
       .then(({ data }) => setTrails(data))
@@ -40,11 +47,13 @@ function AdminDashboard() {
       .catch((error) => console.log(error));
   }, []);
 
+
+
   return (
     <>
       <Navbar />
-      <Grid container direction="row" justifyContent="center">
-        <Grid item xs={5} mt={12}>
+      <Grid container direction="row" justifyContent="space-around">
+        <Grid item xs={2} mt={12}>
           <Box
             display="flex"
             flexDirection="column"
@@ -84,9 +93,18 @@ function AdminDashboard() {
               >
                 <Typography variant="h5">Trilhas</Typography>
               </AccordionSummary>
-
               {trails?.map(({ _id, title }) => (
-                <AccordionDetailsTrails key={_id} title={title} />
+                <Box display="flex" justifyContent="space-between" alignItems="center">
+                  <AccordionDetailsTrails key={_id} title={title} />
+                  <Box>
+                    <Button variant="contained" size="small" onClick={handleOpenModalTrail} className="admin-dash-btn">
+                      Atualizar
+                    </Button>
+                    <Button onClick={() => onDelete(_id)} variant="contained" size="small">
+                      Deletar
+                    </Button>
+                  </Box>
+                </Box>
               ))}
             </Accordion>
             <Accordion>

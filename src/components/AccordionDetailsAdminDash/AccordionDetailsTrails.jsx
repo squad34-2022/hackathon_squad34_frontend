@@ -1,20 +1,30 @@
-import { AccordionDetails, Box, Button, Typography } from "@mui/material";
+import { AccordionDetails, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
+import TrailServices from "../../services/trailServices";
 
-function AccordionDetailsTrails({ title }) {
+function AccordionDetailsTrails({ title, _id }) {
+
+  const [trails, setTrails] = useState([]);
+
+  useEffect(() => {
+    TrailServices.update()
+      .then(({ data }) => setTrails(data))
+      .catch((error) => console.log(error));
+
+    TrailServices.remove()
+      .then(({ data }) => setTrails(data))
+      .catch((error) => console.log(error));
+
+
+  }, []);
+
+
   return (
-    <AccordionDetails>
-      <Box display="flex" justifyContent="space-between" alignItems="center">
+    <>
+      <AccordionDetails key={_id}>
         <Typography textAlign="center">{title}</Typography>
-        <Box>
-          <Button variant="contained" size="small" className="admin-dash-btn">
-            Atualizar
-          </Button>
-          <Button variant="contained" size="small">
-            Deletar
-          </Button>
-        </Box>
-      </Box>
-    </AccordionDetails>
+      </AccordionDetails>
+    </>
   );
 }
 
