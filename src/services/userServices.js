@@ -26,18 +26,9 @@ async function getById(id) {
 }
 
 async function authenticate({ password, email }) {
-  try {
-    const response = await apiBack.post("/users/login", { password, email });
+  const { data } = await apiBack.post("/users/login", { password, email });
 
-    if (response.status === 200) {
-      localStorage.setItem("token", response.data.token);
-      localStorage.setItem("user", JSON.stringify(response.data.user));
-    }
-
-    return response;
-  } catch (error) {
-    return error.response;
-  }
+  return data;
 }
 async function add({ name, password, email }) {
   try {

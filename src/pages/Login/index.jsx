@@ -10,11 +10,8 @@ import * as React from "react";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import UserServices from "../../services/userServices";
+import { AuthContext } from "../../context/Auth";
 import "./styles.css";
-
-
-
 
 function Copyright(props) {
   return (
@@ -36,7 +33,10 @@ function Copyright(props) {
 
 export default function Login() {
   const navigate = useNavigate();
-  const handleSubmit = async (event) => {
+
+  const { singIn } = React.useContext(AuthContext);
+
+  const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
 
@@ -46,46 +46,16 @@ export default function Login() {
     };
 
     if (!user.email || !user.password) {
-      toast.error("Preencha todos os campos!", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-      });
+      toast.error("Preencha todos os campos!");
       return;
     }
 
-    const response = await UserServices.authenticate(user);
-
-    if (response.status !== 200) {
-      toast.error(response.data.error, {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-      });
-      return;
-    }
-
-    navigate("/dashboard");
-    toast.success("Bem Vindo!!", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
+    singIn(user)
+      .then((user) => {
+        toast.success("Bem Vindo!!");
+        navigate("/dashboard");
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
