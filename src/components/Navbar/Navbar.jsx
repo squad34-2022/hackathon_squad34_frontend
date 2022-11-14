@@ -27,14 +27,26 @@ export default function Navbar() {
           >
             🍊 Orange Evolution
           </Typography>
-          <a href="/dashboard" className="text-dec-none">
-            <Button className="navbar-menu">Home</Button>
-          </a>
-          <a href="/trilhas" className="text-dec-none">
-            <Button className="navbar-menu" color="inherit">
-              Trilhas
-            </Button>
-          </a>
+
+          <Button
+            className="navbar-menu"
+            onClick={() => {
+              navigate("/dashboard");
+            }}
+          >
+            Home
+          </Button>
+
+          <Button
+            className="navbar-menu"
+            color="inherit"
+            onClick={() => {
+              navigate("/trilhas");
+            }}
+          >
+            Trilhas
+          </Button>
+
           {user?.email.includes("@fcamara") && (
             <Button
               className="navbar-menu"

@@ -15,9 +15,7 @@ function SliderTeste() {
   return (
     <AwesomeSlider transitionDelay={100}>
       {imagesSlider.map((image, i) => (
-        <Box>
-          <img width="100%" src={imagesSlider[i]} alt="" />
-        </Box>
+        <img key={i} width="100%" data-src={image} alt="img" />
       ))}
     </AwesomeSlider>
   );

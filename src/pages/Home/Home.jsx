@@ -12,9 +12,9 @@ function Home() {
         alignItems="center"
         className="bg-image"
         mb={5}
+        pt={5}
       >
         <Grid item xs={12}>
-          <Toolbar />
           <Grid container justifyContent="space-evenly" gap={15}>
             <img
               src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1639661491/$s20z34nynz"
@@ -51,12 +51,6 @@ function Home() {
         </Grid>
       </Grid>
 
-      {/* <Button
-        sx={{ border: "none", width: "100%" }}
-        variant="outlined"
-        href="/trilhas"
-        heigth="auto"
-      > */}
       <Grid
         container
         justifyContent="center"

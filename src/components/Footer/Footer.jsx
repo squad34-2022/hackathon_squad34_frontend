@@ -35,7 +35,7 @@ function Footer() {
             </Typography>
           </Grid>
         </Grid>
-        <Grid xs={4}>
+        <Grid item xs={4}>
           <Grid>
             <Grid>
               <Typography

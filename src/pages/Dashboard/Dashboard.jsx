@@ -4,6 +4,7 @@ import LinearProgress, {
 } from "@mui/material/LinearProgress";
 import { styled } from "@mui/material/styles";
 import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import Slider from "../../components/Slider/Slider";
 import { AuthContext } from "../../context/Auth";
@@ -27,6 +28,8 @@ function Dashboard() {
   const [trails, setTrails] = useState([]);
 
   const { user } = useContext(AuthContext);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     TrailServices.getAll()
@@ -52,6 +55,7 @@ function Dashboard() {
           xs={5}
           mt={12}
           gap={5}
+          item
         >
           <Box
             display="flex"
@@ -67,8 +71,8 @@ function Dashboard() {
             </Typography>
           </Box>
           <Box justifyContent="center" alignItems="center">
-            {trails?.map(({ title }) => (
-              <Box key={title}>
+            {trails?.map(({ _id, title }) => (
+              <Box key={_id}>
                 <Typography variant="h6" title={title}>
                   {title}
                 </Typography>
@@ -83,7 +87,7 @@ function Dashboard() {
             ))}
           </Box>
           <Box>
-            <Button href="/cursos" variant="contained">
+            <Button variant="contained" onClick={() => navigate("/cursos")}>
               Acessar Aulas
             </Button>
           </Box>
