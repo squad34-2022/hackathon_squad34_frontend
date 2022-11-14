@@ -32,10 +32,9 @@ function AdminDashboard() {
 
   const onDelete = (_id) => {
     TrailServices.remove(_id)
+    CourseServices.remove(_id)
     location.reload();
   }
-
-
 
   useEffect(() => {
     TrailServices.getAll()
@@ -116,12 +115,22 @@ function AdminDashboard() {
                 <Typography variant="h5">Cursos</Typography>
               </AccordionSummary>
               {courses?.map(({ _id, trail, title, author }) => (
-                <AccordionDetailsCourses
-                  key={_id}
-                  title={title}
-                  trail={trail}
-                  author={author}
-                />
+                <Box display="flex" justifyContent="space-between" alignItems="center">
+                  <AccordionDetailsCourses
+                    key={_id}
+                    title={title}
+                    trail={trail}
+                    author={author}
+                  />
+                  <Box >
+                    <Button variant="contained" size="small" className="admin-dash-btn">
+                      Atualizar
+                    </Button>
+                    <Button onClick={() => onDelete(_id)} variant="contained" size="small">
+                      Deletar
+                    </Button>
+                  </Box>
+                </Box>
               ))}
             </Accordion>
           </Box>
