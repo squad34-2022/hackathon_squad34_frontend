@@ -7,12 +7,13 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import AccordionDetailsCourses from "../../components/AccordionDetailsAdminDash/AccordionDetailsCourses";
 import AccordionDetailsTrails from "../../components/AccordionDetailsAdminDash/AccordionDetailsTrails";
 import ModalCursos from "../../components/ModalCursos/ModalCursos";
 import ModalTrilhas from "../../components/ModalTrilhas/ModalTrilhas";
 import Navbar from "../../components/Navbar/Navbar";
+import { AuthContext } from "../../context/Auth";
 import CourseServices from "../../services/coursesServices";
 import TrailServices from "../../services/trailServices";
 import "./adminDashboard.css";
@@ -28,6 +29,8 @@ function AdminDashboard() {
   const [openModalTrail, setOpenModalTrail] = useState(false);
   const handleCloseModalTrail = () => setOpenModalTrail(false);
   const handleOpenModalTrail = () => setOpenModalTrail(true);
+
+  const { user } = useContext(AuthContext);
 
   const onDelete = (_id) => {
     TrailServices.remove(_id);
@@ -56,7 +59,7 @@ function AdminDashboard() {
             justifyContent="center"
             alignItems="center"
           >
-            <Typography variant="h1">Olá, fulano de tal</Typography>
+            <Typography variant="h1">Olá, {user?.name}</Typography>
             <Typography variant="h5">O que você quer fazer hoje?</Typography>
           </Box>
           <Box display="flex" justifyContent="center" alignItems="center">

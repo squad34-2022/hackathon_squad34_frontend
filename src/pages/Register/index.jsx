@@ -15,6 +15,7 @@ import * as React from "react";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { AuthContext } from "../../context/Auth";
 import UserServices from "../../services/userServices";
 import "./styles.css";
 
@@ -38,6 +39,8 @@ function Copyright(props) {
 
 export default function Register() {
   const navigate = useNavigate();
+  const { register } = React.useContext(AuthContext);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -49,46 +52,21 @@ export default function Register() {
     };
 
     if (!user.name || !user.email || !user.password) {
-      toast.error("Preencha Todos os campos!", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
-      });
+      toast.error("Preencha Todos os campos!");
       return;
     }
 
-    const response = await UserServices.add(user);
-
-    if (response.status !== 200) {
-      toast.error(response.data.error, {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "colored",
+    register(user)
+      .then(() => {
+        toast.success("Bem Vindo!!");
+        navigate("/dashboard");
+      })
+      .catch((error) => {
+        if (error.code === "ERR_NETWORK") {
+          return toast.error("Sem Conexão com o Servidor...");
+        }
+        return toast.error(error.response.data.error);
       });
-      return;
-    }
-
-    navigate("/dashboard");
-    toast.success("Bem Vindo!!", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "light",
-    });
   };
 
   return (
