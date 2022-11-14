@@ -5,9 +5,10 @@ import {
   Box,
   Button,
   Grid,
-  Typography,
+  Typography
 } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import AccordionDetailsCourses from "../../components/AccordionDetailsAdminDash/AccordionDetailsCourses";
 import AccordionDetailsTrails from "../../components/AccordionDetailsAdminDash/AccordionDetailsTrails";
 import ModalCursos from "../../components/ModalCursos/ModalCursos";
@@ -25,18 +26,36 @@ function AdminDashboard() {
 
   const [trails, setTrails] = useState([]);
   const [courses, setCourses] = useState([]);
+  const [action, setAction] = useState("add");
 
+  const [edit, setEdit] = useState();
   const [openModalTrail, setOpenModalTrail] = useState(false);
   const handleCloseModalTrail = () => setOpenModalTrail(false);
   const handleOpenModalTrail = () => setOpenModalTrail(true);
 
   const { user } = useContext(AuthContext);
 
-  const onDelete = (_id) => {
-    TrailServices.remove(_id);
-    CourseServices.remove(_id);
-    location.reload();
-  };
+  async function onDeleteCourse(id) {
+    try {
+      await CourseServices.remove(id);
+      location.reload();
+      toast.success("Curso deletado!");
+    } catch (error) {
+      console.log(error);
+      toast.error("Erro ao deletar curso!");
+    }
+  }
+
+  async function onDeleteTrail(id) {
+    try {
+      await TrailServices.remove(id);
+      toast.success("Trilha deletada!");
+      location.reload();
+    } catch (error) {
+      console.log(error);
+      toast.error("Erro ao deletar trilha!");
+    }
+  }
 
   useEffect(() => {
     TrailServices.getAll()
@@ -66,14 +85,20 @@ function AdminDashboard() {
             <Button
               variant="contained"
               className="mg-top admin-dash-btn"
-              onClick={handleOpenModalTrail}
+              onClick={() => {
+                setAction("add");
+                handleOpenModalTrail();
+              }}
             >
               Adicionar Trilha
             </Button>
             <Button
               variant="contained"
               className="mg-top"
-              onClick={handleOpenModalCourse}
+              onClick={() => {
+                setAction("add");
+                handleOpenModalCourse();
+              }}
             >
               Adicionar Curso
             </Button>
@@ -90,25 +115,29 @@ function AdminDashboard() {
               >
                 <Typography variant="h5">Trilhas</Typography>
               </AccordionSummary>
-              {trails?.map(({ _id, title }) => (
+              {trails?.map(({ _id, title, description }) => (
                 <Box
                   key={_id}
                   display="flex"
                   justifyContent="space-between"
                   alignItems="center"
                 >
-                  <AccordionDetailsTrails key={_id} title={title} />
+                  <AccordionDetailsTrails title={title} />
                   <Box>
                     <Button
                       variant="contained"
                       size="small"
-                      onClick={handleOpenModalTrail}
                       className="admin-dash-btn"
+                      onClick={() => {
+                        handleOpenModalTrail();
+                        setAction("edit");
+                        setEdit({ _id, title, description });
+                      }}
                     >
                       Atualizar
                     </Button>
                     <Button
-                      onClick={() => onDelete(_id)}
+                      onClick={() => onDeleteTrail(_id)}
                       variant="contained"
                       size="small"
                     >
@@ -126,7 +155,7 @@ function AdminDashboard() {
               >
                 <Typography variant="h5">Cursos</Typography>
               </AccordionSummary>
-              {courses?.map(({ _id, trail, title, author }) => (
+              {courses?.map(({ _id, trail, title, author, type, link }) => (
                 <Box
                   key={_id}
                   display="flex"
@@ -144,11 +173,16 @@ function AdminDashboard() {
                       variant="contained"
                       size="small"
                       className="admin-dash-btn"
+                      onClick={() => {
+                        handleOpenModalCourse();
+                        setAction("edit");
+                        setEdit({ _id, trail, title, author, type, link });
+                      }}
                     >
                       Atualizar
                     </Button>
                     <Button
-                      onClick={() => onDelete(_id)}
+                      onClick={() => onDeleteCourse(_id)}
                       variant="contained"
                       size="small"
                     >
@@ -164,10 +198,14 @@ function AdminDashboard() {
           open={openModalCourse}
           handleClose={handleCloseModalCourse}
           trails={trails}
+          action={action}
+          edit={edit}
         />
         <ModalTrilhas
           open={openModalTrail}
           handleClose={handleCloseModalTrail}
+          action={action}
+          edit={edit}
         />
       </Grid>
     </>
