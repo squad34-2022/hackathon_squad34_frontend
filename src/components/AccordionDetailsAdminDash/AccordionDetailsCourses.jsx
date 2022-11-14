@@ -7,14 +7,7 @@ function AccordionDetailsCourses({ trail, title, author }) {
         <Chip label={trail?.title} />
         <Typography textAlign="center">{title}</Typography>
         <Typography textAlign="center">{author}</Typography>
-        <Box>
-          <Button variant="contained" size="small" className="admin-dash-btn">
-            Atualizar
-          </Button>
-          <Button variant="contained" size="small">
-            Deletar
-          </Button>
-        </Box>
+
       </Box>
     </AccordionDetails>
   );
