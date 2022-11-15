@@ -53,6 +53,8 @@ export const AuthProvider = ({ children }) => {
     if (result instanceof Error) {
       return result.message;
     } else {
+      api.defaults.headers.common["Authorization"] = `Bearer ${result.token}`;
+
       Cookie.set(ACCESS_TOKEN_COOKIE, result.token);
       Cookie.set("user", result.user._id);
       setUser(result.user);
@@ -66,6 +68,7 @@ export const AuthProvider = ({ children }) => {
     if (result instanceof Error) {
       return result.message;
     } else {
+      api.defaults.headers.common["Authorization"] = `Bearer ${result.token}`;
       Cookie.set(ACCESS_TOKEN_COOKIE, result.token);
       Cookie.set("user", result.user._id);
       setUser(result.user);
@@ -74,12 +77,14 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const singOut = useCallback(() => {
+    api.defaults.headers.common["Authorization"] = undefined;
     setAccessToken(undefined);
     Cookie.remove("user");
     Cookie.remove(ACCESS_TOKEN_COOKIE);
   }, []);
 
   const isAuthenticated = useMemo(() => !!accessToken, [accessToken]);
+
   return (
     <AuthContext.Provider
       value={{
