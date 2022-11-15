@@ -12,7 +12,7 @@
 <p>Optamos por criar a interface do projeto com React.js pela possibilidade de criação e reutilização de componentes, aliado à Material-UI para facilitar a estilização e padronização do código.</p>
 
 <h2>Como rodar o projeto</h2>
-<p>Baixe o nosso repositório em sua máquina, abra com sua IDE de preferência (utilizamos o VSCode) e, no terminal, dê o comando `npm run dev`.
+<p>Baixe o nosso repositório em sua máquina, abra com sua IDE de preferência (utilizamos o VSCode) e, no terminal, dê os comandos "npm i" para instalar as dependências necessárias e, em seguida, "npm run dev" para rodar.
 
 <h2>Links úteis</h2>
 <ul>
