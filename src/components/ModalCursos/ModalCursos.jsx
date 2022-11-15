@@ -163,7 +163,7 @@ export default function ModalCursos({
             autoComplete="link"
             autoFocus
           />
-          // adicionar seletor de trilha aqui
+
           <Button
             type="submit"
             fullWidth
@@ -257,7 +257,7 @@ export default function ModalCursos({
             autoComplete="link"
             autoFocus
           />
-          // adicionar seletor de trilha aqui
+
           <Button
             type="submit"
             fullWidth
