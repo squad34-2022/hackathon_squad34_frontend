@@ -22,7 +22,10 @@ function Copyright(props) {
       {...props}
     >
       {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
+      <Link
+        color="inherit"
+        href="https://digital.fcamara.com.br/programadeformacao"
+      >
         Fcamara
       </Link>{" "}
       {new Date().getFullYear()}
@@ -92,7 +95,7 @@ export default function Register() {
             alignItems: "center",
           }}
         >
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h1">
             Cadastro
           </Typography>
           <Box
@@ -150,7 +153,8 @@ export default function Register() {
                   onClick={() => {
                     navigate("/login");
                   }}
-                  variant="body2">
+                  variant="body2"
+                >
                   {"Já possuí conta? Login"}
                 </Link>
               </Grid>
@@ -159,7 +163,8 @@ export default function Register() {
                   onClick={() => {
                     navigate("/");
                   }}
-                  variant="body2">
+                  variant="body2"
+                >
                   {"Voltar para a Home"}
                 </Link>
               </Grid>
