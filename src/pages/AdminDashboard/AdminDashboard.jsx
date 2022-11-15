@@ -104,10 +104,10 @@ function AdminDashboard() {
             </Button>
           </Box>
         </Grid>
-        <Grid item xs={6} alignItems="center" textAlign="center" marginTop={12}>
+        <Grid item xs={7} alignItems="center" textAlign="center" marginTop={12}>
           <Box>
             <Typography variant="h1">Cursos e Trilhas</Typography>
-            <Accordion>
+            <Accordion className="accordion-trails-courses">
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
@@ -147,7 +147,7 @@ function AdminDashboard() {
                 </Box>
               ))}
             </Accordion>
-            <Accordion>
+            <Accordion className="accordion-trails-courses">
               <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel1a-content"
@@ -167,6 +167,7 @@ function AdminDashboard() {
                     title={title}
                     trail={trail}
                     author={author}
+
                   />
                   <Box>
                     <Button

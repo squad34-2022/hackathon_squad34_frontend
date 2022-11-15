@@ -4,7 +4,7 @@ import {
   Checkbox,
   Chip,
   Stack,
-  Typography,
+  Typography
 } from "@mui/material";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
