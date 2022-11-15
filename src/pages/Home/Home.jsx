@@ -6,7 +6,6 @@ import "./home.css";
 function Home() {
   const navigate = useNavigate();
 
-
   return (
     <div className="home-body">
       <Grid
@@ -40,14 +39,25 @@ function Home() {
           <Grid item xs={12}>
             <Box
               display="flex"
-              justifyContent="center"
+              justifyContent="end"
+              maxWidth="85vw"
               marginTop={4}
               className="home-btn"
             >
-              <Button href="/cadastro" variant="contained">
+              <Button
+                sx={{ borderRadius: 20 }}
+                onClick={() => {
+                  navigate("/cadastro");
+                }}
+                variant="contained">
                 Criar conta
               </Button>
-              <Button href="/login" variant="contained">
+              <Button
+                sx={{ borderRadius: 20 }}
+                onClick={() => {
+                  navigate("/login");
+                }}
+                variant="contained">
                 Entrar
               </Button>
             </Box>

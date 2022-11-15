@@ -83,6 +83,7 @@ function AdminDashboard() {
           </Box>
           <Box display="flex" justifyContent="center" alignItems="center">
             <Button
+              sx={{ borderRadius: 20 }}
               variant="contained"
               className="mg-top admin-dash-btn"
               onClick={() => {
@@ -93,6 +94,7 @@ function AdminDashboard() {
               Adicionar Trilha
             </Button>
             <Button
+              sx={{ borderRadius: 20 }}
               variant="contained"
               className="mg-top"
               onClick={() => {
