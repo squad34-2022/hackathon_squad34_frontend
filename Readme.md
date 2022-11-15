@@ -13,9 +13,3 @@
 
 <h2>Como rodar o projeto</h2>
 <p>Baixe o nosso repositório em sua máquina, abra com sua IDE de preferência (utilizamos o VSCode) e, no terminal, dê os comandos "npm i" para instalar as dependências necessárias e, em seguida, "npm run dev" para rodar.
-
-<h2>Links úteis</h2>
-<ul>
-<li><a href="https://www.figma.com/file/aoSA3SEH2hwcV1xncPtMm0/Hackathon---Telas?node-id=0%3A1" target="_blank">Projeto no Figma</a></li>
-<li>Deploy (em breve)</li>
-<ul>
