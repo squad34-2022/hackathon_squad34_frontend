@@ -12,6 +12,9 @@ const theme = createTheme({
       primary: "#FF5A23",
       secondary: "#6c6767",
     },
+    link: {
+      primary: "#01579b",
+    },
   },
   components: {
     MuiButton: {
@@ -36,6 +39,14 @@ const theme = createTheme({
           required: false,
         },
         required: true,
+      },
+    },
+  },
+  typography: {
+    h1: {
+      fontSize: "4.5rem",
+      "@media (max-width:600px)": {
+        fontSize: "3rem",
       },
     },
   },

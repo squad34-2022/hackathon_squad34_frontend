@@ -16,6 +16,7 @@ function Home() {
         className="bg-image"
         mb={5}
         pt={5}
+        sx={{ overflowX: "unset" }}
       >
         <Grid item xs={12}>
           <Grid container justifyContent="space-evenly" gap={15}>
@@ -49,7 +50,8 @@ function Home() {
                 onClick={() => {
                   navigate("/cadastro");
                 }}
-                variant="contained">
+                variant="contained"
+              >
                 Criar conta
               </Button>
               <Button
@@ -57,64 +59,62 @@ function Home() {
                 onClick={() => {
                   navigate("/login");
                 }}
-                variant="contained">
+                variant="contained"
+              >
                 Entrar
               </Button>
             </Box>
           </Grid>
         </Grid>
       </Grid>
-      <Button
-        fullWidth
-        onClick={() => {
-          navigate("/trilhas");
-        }}>
+
+      <Grid
+        container
+        justifyContent="center"
+        alignItems="center"
+        className="bg-gradient"
+        gap={3}
+        sx={{ pt: 3, pb: 3 }}
+      >
+        <Typography variant="h3" color="secondary">
+          Cadastre-se e conheça nossas trilhas:
+        </Typography>
+
         <Grid
           container
-          justifyContent="center"
+          justifyContent="space-around"
+          flexWrap="wrap"
           alignItems="center"
-          className="bg-gradient"
-          height="auto"
         >
-          <Grid justifyContent="center">
-            <Grid flexWrap={"wrap"} justifyContent="space-around">
-              <Typography variant="h3" className="home-h3">
-                Cadastre-se e conheça nossas trilhas:
-              </Typography>
-            </Grid>
-            <Grid display="flex" flexWrap={"wrap"}>
-              <Box flexDirection="column" textAlign="center">
-                <img
-                  src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$mip3cw6frz9"
-                  alt="FullStack"
-                />
-                <Typography variant="h5" className="color-white">
-                  Desenvolvimento Full Stack
-                </Typography>
-              </Box>
-              <Box flexDirection="column" textAlign="center">
-                <img
-                  src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$orvl84rg8a"
-                  alt=""
-                />
-                <Typography variant="h5" className="color-white">
-                  UX/UI Design
-                </Typography>
-              </Box>
-              <Box flexDirection="column" textAlign="center">
-                <img
-                  src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$4nai9gbaeha"
-                  alt=""
-                />
-                <Typography variant="h5" className="color-white">
-                  QA (Quality Assurance)
-                </Typography>
-              </Box>
-            </Grid>
-          </Grid>
+          <Box flexDirection="column" textAlign="center" sx={{ p: 4 }}>
+            <img
+              src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$mip3cw6frz9"
+              alt="FullStack"
+            />
+            <Typography variant="h5" className="color-white">
+              Desenvolvimento Full Stack
+            </Typography>
+          </Box>
+          <Box flexDirection="column" textAlign="center" sx={{ p: 4 }}>
+            <img
+              src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$orvl84rg8a"
+              alt=""
+            />
+            <Typography variant="h5" className="color-white">
+              UX/UI Design
+            </Typography>
+          </Box>
+          <Box flexDirection="column" textAlign="center" sx={{ p: 4 }}>
+            <img
+              src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$4nai9gbaeha"
+              alt=""
+            />
+            <Typography variant="h5" className="color-white">
+              QA (Quality Assurance)
+            </Typography>
+          </Box>
         </Grid>
-      </Button>
-
+      </Grid>
       <Footer />
     </div>
   );

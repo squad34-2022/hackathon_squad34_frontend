@@ -1,3 +1,4 @@
+import OpenInNewRoundedIcon from "@mui/icons-material/OpenInNewRounded";
 import {
   Accordion,
   AccordionDetails,
@@ -5,6 +6,7 @@ import {
   Checkbox,
   Chip,
   Divider,
+  Link,
   Stack,
   Typography,
 } from "@mui/material";
@@ -13,8 +15,8 @@ import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import Drawer from "@mui/material/Drawer";
 import Toolbar from "@mui/material/Toolbar";
+import { fontWeight } from "@mui/system";
 import { useEffect, useState } from "react";
-
 import Navbar from "../../components/Navbar/Navbar";
 import CourseServices from "../../services/coursesServices";
 import TrailServices from "../../services/trailServices";
@@ -95,12 +97,58 @@ function Courses() {
         component="main"
         sx={{ height: " 80vh", width: "100%" }}
       >
-        <iframe
-          width="100%"
-          height="100%"
-          src={link}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; allowfullscreen"
-        ></iframe>
+        {link.includes("youtube") ||
+        link.includes("alura") ||
+        !link ||
+        link.includes("cursomp3") ||
+        link.includes("scrumalliance") ? (
+          <iframe
+            width="100%"
+            height="100%"
+            src={link}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; allowfullscreen"
+          ></iframe>
+        ) : (
+          <Box
+            sx={{
+              height: " 100%",
+              width: "100%",
+              display: "flex",
+              alignItems: "center",
+              mt: 5,
+              flexDirection: "column",
+            }}
+          >
+            <Typography variant="h3" color="orange[200]">
+              Ops...
+            </Typography>
+
+            <Box
+              sx={{
+                mt: 5,
+                p: 5,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+            >
+              <Typography variant="body1" gutterBottom color="text.secondary">
+                Infelizmente nossa plataforma não pode renderizar esse conteúdo,
+                mas vamos te encaminhar para o endereço.
+              </Typography>
+
+              <Link
+                href={link}
+                sx={{ p: 4, display: "flex", fontWeight: "bold" }}
+                underline="hover"
+                target="_blank"
+                rel="noopener"
+              >
+                Clique Aqui <OpenInNewRoundedIcon />
+              </Link>
+            </Box>
+          </Box>
+        )}
       </Box>
     </Box>
   );
