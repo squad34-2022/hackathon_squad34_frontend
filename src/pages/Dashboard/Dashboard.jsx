@@ -41,21 +41,20 @@ function Dashboard() {
     <>
       <Navbar />
       <Grid
-        container
         display="flex"
-        flexWrap={"wrap"}
         direction="row"
         justifyContent="center"
+        sx={{ flexWrap: "wrap", overflowX: "unset" }}
+        mt={12}
       >
         <Grid
           display="flex"
           flexDirection="column"
           justifyContent="center"
           alignItems="center"
-          xs={5}
-          mt={12}
-          gap={5}
           item
+          xs={6}
+          gap={5}
         >
           <Box
             display="flex"
@@ -70,17 +69,17 @@ function Dashboard() {
               Veja seu progresso nas trilhas:
             </Typography>
           </Box>
-          <Box justifyContent="center" alignItems="center">
+          <Box ml={20} justifyContent="center" alignItems="center">
             {trails?.map(({ _id, title }) => (
-              <Box key={_id}>
+              <Box key={_id} >
                 <Typography variant="h6" title={title}>
                   {title}
                 </Typography>
                 <Box sx={{ flexGrow: 1 }}>
                   <BorderLinearProgress
-                    sx={{ width: 500 }}
+                    sx={{ width: 450 }}
                     variant="determinate"
-                    value={50}
+                    value={Math.random() * 100}
                   />
                 </Box>
               </Box>
@@ -101,14 +100,20 @@ function Dashboard() {
           flexDirection="column"
           alignItems="center"
           textAlign="center"
-          marginTop={12}
+          justifyContent="center"
         >
-          <Box>
+          <Box
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="center"
+          >
             <Typography marginTop={8} variant="h1">
               Comunidade
             </Typography>
             <Typography variant="h5">Conecte-se com outros membros:</Typography>
             <Box
+
               display="flex"
               justifyContent="center"
               alignItems="center"
