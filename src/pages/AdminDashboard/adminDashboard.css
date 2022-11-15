@@ -5,3 +5,8 @@
 .mg-top {
   margin-top: 40px !important;
 }
+
+.accordion-trails-courses {
+  overflow-y: scroll;
+  max-height: 35vh;
+}
