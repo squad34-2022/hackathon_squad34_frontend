@@ -1,10 +1,10 @@
 import { Box, Button, Grid, Typography } from "@mui/material";
 import LinearProgress, {
-  linearProgressClasses,
+  linearProgressClasses
 } from "@mui/material/LinearProgress";
 import { styled } from "@mui/material/styles";
 import { useContext, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import Slider from "../../components/Slider/Slider";
 import { AuthContext } from "../../context/Auth";
@@ -87,7 +87,7 @@ function Dashboard() {
             ))}
           </Box>
           <Box>
-            <Button variant="contained" onClick={() => navigate("/cursos")}>
+            <Button sx={{ borderRadius: 20 }} variant="contained" onClick={() => navigate("/cursos")}>
               Acessar Aulas
             </Button>
           </Box>
