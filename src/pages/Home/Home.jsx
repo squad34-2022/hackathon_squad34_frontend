@@ -1,8 +1,12 @@
-import { Box, Button, Grid, Toolbar, Typography } from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
 import "./home.css";
 
 function Home() {
+  const navigate = useNavigate();
+
+
   return (
     <div className="home-body">
       <Grid
@@ -50,52 +54,56 @@ function Home() {
           </Grid>
         </Grid>
       </Grid>
-
-      <Grid
-        container
-        justifyContent="center"
-        alignItems="center"
-        className="bg-gradient"
-        height="auto"
-      >
-        <Grid justifyContent="center">
-          <Grid flexWrap={"wrap"} justifyContent="space-around">
-            <Typography variant="h3" className="home-h3">
-              Cadastre-se e conheça nossas trilhas:
-            </Typography>
-          </Grid>
-          <Grid display="flex" flexWrap={"wrap"}>
-            <Box flexDirection="column" textAlign="center">
-              <img
-                src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$mip3cw6frz9"
-                alt="FullStack"
-              />
-              <Typography variant="h5" className="color-white">
-                Desenvolvimento Full Stack
+      <Button
+        fullWidth
+        onClick={() => {
+          navigate("/trilhas");
+        }}>
+        <Grid
+          container
+          justifyContent="center"
+          alignItems="center"
+          className="bg-gradient"
+          height="auto"
+        >
+          <Grid justifyContent="center">
+            <Grid flexWrap={"wrap"} justifyContent="space-around">
+              <Typography variant="h3" className="home-h3">
+                Cadastre-se e conheça nossas trilhas:
               </Typography>
-            </Box>
-            <Box flexDirection="column" textAlign="center">
-              <img
-                src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$orvl84rg8a"
-                alt=""
-              />
-              <Typography variant="h5" className="color-white">
-                UX/UI Design
-              </Typography>
-            </Box>
-            <Box flexDirection="column" textAlign="center">
-              <img
-                src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$4nai9gbaeha"
-                alt=""
-              />
-              <Typography variant="h5" className="color-white">
-                QA (Quality Assurance)
-              </Typography>
-            </Box>
+            </Grid>
+            <Grid display="flex" flexWrap={"wrap"}>
+              <Box flexDirection="column" textAlign="center">
+                <img
+                  src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$mip3cw6frz9"
+                  alt="FullStack"
+                />
+                <Typography variant="h5" className="color-white">
+                  Desenvolvimento Full Stack
+                </Typography>
+              </Box>
+              <Box flexDirection="column" textAlign="center">
+                <img
+                  src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$orvl84rg8a"
+                  alt=""
+                />
+                <Typography variant="h5" className="color-white">
+                  UX/UI Design
+                </Typography>
+              </Box>
+              <Box flexDirection="column" textAlign="center">
+                <img
+                  src="https://d335luupugsy2.cloudfront.net/cms/files/107693/1662729347/$4nai9gbaeha"
+                  alt=""
+                />
+                <Typography variant="h5" className="color-white">
+                  QA (Quality Assurance)
+                </Typography>
+              </Box>
+            </Grid>
           </Grid>
         </Grid>
-      </Grid>
-      {/* </Button> */}
+      </Button>
 
       <Footer />
     </div>
