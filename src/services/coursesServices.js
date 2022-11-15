@@ -19,7 +19,7 @@ async function getById(id) {
   return response;
 }
 async function update(id, { title, type, author, link, trail }) {
-  const response = await api.patch(`/courses/${id}`, {
+  const response = await api.put(`/courses/${id}`, {
     title,
     type,
     author,
