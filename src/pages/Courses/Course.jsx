@@ -1,19 +1,29 @@
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Checkbox,
+  Chip,
+  Divider,
+  Stack,
+  Typography,
+} from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import Drawer from "@mui/material/Drawer";
 import Toolbar from "@mui/material/Toolbar";
 import { useEffect, useState } from "react";
-import AccordionCourses from "../../components/AccordionCourses";
+
 import Navbar from "../../components/Navbar/Navbar";
 import CourseServices from "../../services/coursesServices";
 import TrailServices from "../../services/trailServices";
-
 const drawerWidth = 240;
 
 function Courses() {
   const [trails, setTrails] = useState([]);
   const [courses, setCourses] = useState([]);
+  const [link, setLink] = useState("");
 
   useEffect(() => {
     TrailServices.getAll()
@@ -24,7 +34,7 @@ function Courses() {
       .then(({ data }) => setCourses(data))
       .catch((error) => console.log(error));
   }, []);
-
+  const label = { inputProps: { "aria-label": "Checkbox demo" } };
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
@@ -48,18 +58,48 @@ function Courses() {
         <Toolbar />
         <Box sx={{ overflow: "auto" }}>
           {trails?.map(({ _id, title, courses }) => (
-            <AccordionCourses key={_id} title={title} courses={courses} />
+            <Accordion key={_id}>
+              <AccordionSummary>
+                <Typography variant="h6">{title}</Typography>
+              </AccordionSummary>
+              <Divider />
+              {courses?.map(({ _id, title, type, author, link }) => (
+                <AccordionDetails
+                  key={_id}
+                  sx={{ background: "#eceaea", mt: 1 }}
+                >
+                  <Box
+                    display={"flex"}
+                    onClick={() => setLink(link)}
+                    justifyContent={"space-between"}
+                    sx={{ cursor: "pointer", pt: 1 }}
+                  >
+                    <Typography>{title}</Typography>
+                    <Checkbox {...label} color="success" />
+                  </Box>
+                  <Box sx={{ mt: 1 }}>
+                    <Stack direction="row" spacing={2}>
+                      <Chip label={type} color="primary" />
+                      <Chip label={author} color="primary" />
+                    </Stack>
+                  </Box>
+                </AccordionDetails>
+              ))}
+            </Accordion>
           ))}
         </Box>
       </Drawer>
-      <Box ml={5} container="true" component="main" sx={{ height: "100vh" }}>
-        <Toolbar />
+      <Box
+        mt={9}
+        container="true"
+        component="main"
+        sx={{ height: " 80vh", width: "100%" }}
+      >
         <iframe
-          name="aula1"
-          width="1200"
-          height="800"
-          src=""
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          width="100%"
+          height="100%"
+          src={link}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; allowfullscreen"
         ></iframe>
       </Box>
     </Box>
