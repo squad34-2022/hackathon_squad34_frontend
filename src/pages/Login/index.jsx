@@ -8,7 +8,7 @@ import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../../context/Auth";
 import "./styles.css";
@@ -130,10 +130,23 @@ export default function Login() {
             >
               Entrar
             </Button>
-            <Grid container>
+            <Grid container justifyContent="space-between">
               <Grid item>
-                <Link href="/cadastro" variant="body2">
+                <Link
+                  onClick={() => {
+                    navigate("/cadastro");
+                  }}
+                  variant="body2">
                   {"Não tem uma conta? Criar"}
+                </Link>
+              </Grid>
+              <Grid item>
+                <Link
+                  onClick={() => {
+                    navigate("/");
+                  }}
+                  variant="body2">
+                  {"Voltar para a Home"}
                 </Link>
               </Grid>
             </Grid>

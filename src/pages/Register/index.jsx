@@ -1,22 +1,16 @@
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import Checkbox from "@mui/material/Checkbox";
 import CssBaseline from "@mui/material/CssBaseline";
-import FormControlLabel from "@mui/material/FormControlLabel";
 import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import Paper from "@mui/material/Paper";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
 import { useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../../context/Auth";
-import UserServices from "../../services/userServices";
 import "./styles.css";
 
 function Copyright(props) {
@@ -150,6 +144,26 @@ export default function Register() {
             >
               Cadastrar
             </Button>
+            <Grid container justifyContent="space-between">
+              <Grid item>
+                <Link
+                  onClick={() => {
+                    navigate("/login");
+                  }}
+                  variant="body2">
+                  {"Já possuí conta? Login"}
+                </Link>
+              </Grid>
+              <Grid item>
+                <Link
+                  onClick={() => {
+                    navigate("/");
+                  }}
+                  variant="body2">
+                  {"Voltar para a Home"}
+                </Link>
+              </Grid>
+            </Grid>
             <Copyright sx={{ mt: 5 }} />
           </Box>
         </Box>
