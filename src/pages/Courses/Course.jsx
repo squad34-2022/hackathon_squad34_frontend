@@ -197,7 +197,7 @@ export default function Course(props) {
       >
         <Toolbar />
 
-        {link.includes("youtube/embed") ||
+        {link.includes("youtube.com/embed") ||
         link.includes("alura") ||
         !link ||
         link.includes("cursomp3") ||
