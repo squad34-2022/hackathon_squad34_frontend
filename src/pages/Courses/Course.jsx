@@ -1,103 +1,203 @@
+import MailIcon from "@mui/icons-material/Mail";
+import MenuIcon from "@mui/icons-material/Menu";
 import OpenInNewRoundedIcon from "@mui/icons-material/OpenInNewRounded";
 import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
+  Button,
   Checkbox,
   Chip,
-  Divider,
   Link,
   Stack,
-  Typography,
 } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
+import Divider from "@mui/material/Divider";
 import Drawer from "@mui/material/Drawer";
+import IconButton from "@mui/material/IconButton";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
-import { fontWeight } from "@mui/system";
-import { useEffect, useState } from "react";
+import Typography from "@mui/material/Typography";
+import PropTypes from "prop-types";
+import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
-import CourseServices from "../../services/coursesServices";
+import { AuthContext } from "../../context/Auth";
 import TrailServices from "../../services/trailServices";
 const drawerWidth = 240;
 
-function Courses() {
+export default function Course(props) {
+  const { window } = props;
+  const [mobileOpen, setMobileOpen] = useState(false);
+
   const [trails, setTrails] = useState([]);
-  const [courses, setCourses] = useState([]);
   const [link, setLink] = useState("");
+  const { singOut, user } = useContext(AuthContext);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     TrailServices.getAll()
       .then(({ data }) => setTrails(data))
       .catch((error) => console.log(error));
-
-    CourseServices.getAll()
-      .then(({ data }) => setCourses(data))
-      .catch((error) => console.log(error));
   }, []);
+
+  const handleDrawerToggle = () => {
+    setMobileOpen(!mobileOpen);
+  };
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
+  const drawer = (
+    <div>
+      <Toolbar />
+      <Divider />
+      <Box sx={{ overflow: "auto" }}>
+        {trails?.map(({ _id, title, courses }) => (
+          <Accordion key={_id}>
+            <AccordionSummary>
+              <Typography variant="h6">{title}</Typography>
+            </AccordionSummary>
+            <Divider />
+            {courses?.map(({ _id, title, type, author, link }) => (
+              <AccordionDetails key={_id} sx={{ background: "#eceaea", mt: 1 }}>
+                <Box
+                  display={"flex"}
+                  onClick={() => setLink(link)}
+                  justifyContent={"space-between"}
+                  sx={{ cursor: "pointer", pt: 1 }}
+                >
+                  <Typography>{title}</Typography>
+                  <Checkbox {...label} color="success" />
+                </Box>
+                <Box sx={{ mt: 1 }}>
+                  <Stack direction="row" spacing={2}>
+                    <Chip label={type} color="primary" />
+                    <Chip label={author} color="primary" />
+                  </Stack>
+                </Box>
+              </AccordionDetails>
+            ))}
+          </Accordion>
+        ))}
+      </Box>
+    </div>
+  );
+
+  const container =
+    window !== undefined ? () => window().document.body : undefined;
+
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
       <AppBar
         position="fixed"
-        sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
-      >
-        <Navbar />
-      </AppBar>
-      <Drawer
-        variant="permanent"
         sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          [`& .MuiDrawer-paper`]: {
-            width: drawerWidth,
-            boxSizing: "border-box",
-          },
+          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          ml: { sm: `${drawerWidth}px` },
+        }}
+      >
+        <Toolbar>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ mr: 2, display: { sm: "none" } }}
+          >
+            <MenuIcon />
+          </IconButton>
+
+          <Box>
+            <Button
+              className="navbar-menu"
+              onClick={() => {
+                navigate("/dashboard");
+              }}
+            >
+              Home
+            </Button>
+
+            <Button
+              className="navbar-menu"
+              color="inherit"
+              onClick={() => {
+                navigate("/trilhas");
+              }}
+            >
+              Trilhas
+            </Button>
+
+            {user?.email.includes("@fcamara") && (
+              <Button
+                className="navbar-menu"
+                color="inherit"
+                onClick={() => {
+                  navigate("/admin");
+                }}
+              >
+                Admin
+              </Button>
+            )}
+            <Button className="navbar-menu" color="inherit" onClick={singOut}>
+              Sair
+            </Button>
+          </Box>
+        </Toolbar>
+      </AppBar>
+      <Box
+        component="nav"
+        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+        aria-label="mailbox folders"
+      >
+        <Drawer
+          container={container}
+          variant="temporary"
+          open={mobileOpen}
+          onClose={handleDrawerToggle}
+          ModalProps={{
+            keepMounted: true, // Better open performance on mobile.
+          }}
+          sx={{
+            display: { xs: "block", sm: "none" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
+          }}
+        >
+          {drawer}
+        </Drawer>
+        <Drawer
+          variant="permanent"
+          sx={{
+            display: { xs: "none", sm: "block" },
+            "& .MuiDrawer-paper": {
+              boxSizing: "border-box",
+              width: drawerWidth,
+            },
+          }}
+          open
+        >
+          {drawer}
+        </Drawer>
+      </Box>
+      <Box
+        component="main"
+        sx={{
+          flexGrow: 1,
+          p: 3,
+          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          height: " 80vh",
         }}
       >
         <Toolbar />
-        <Box sx={{ overflow: "auto" }}>
-          {trails?.map(({ _id, title, courses }) => (
-            <Accordion key={_id}>
-              <AccordionSummary>
-                <Typography variant="h6">{title}</Typography>
-              </AccordionSummary>
-              <Divider />
-              {courses?.map(({ _id, title, type, author, link }) => (
-                <AccordionDetails
-                  key={_id}
-                  sx={{ background: "#eceaea", mt: 1 }}
-                >
-                  <Box
-                    display={"flex"}
-                    onClick={() => setLink(link)}
-                    justifyContent={"space-between"}
-                    sx={{ cursor: "pointer", pt: 1 }}
-                  >
-                    <Typography>{title}</Typography>
-                    <Checkbox {...label} color="success" />
-                  </Box>
-                  <Box sx={{ mt: 1 }}>
-                    <Stack direction="row" spacing={2}>
-                      <Chip label={type} color="primary" />
-                      <Chip label={author} color="primary" />
-                    </Stack>
-                  </Box>
-                </AccordionDetails>
-              ))}
-            </Accordion>
-          ))}
-        </Box>
-      </Drawer>
-      <Box
-        mt={9}
-        container="true"
-        component="main"
-        sx={{ height: " 80vh", width: "100%" }}
-      >
-        {link.includes("youtube") ||
+
+        {link.includes("youtube/embed") ||
         link.includes("alura") ||
         !link ||
         link.includes("cursomp3") ||
@@ -153,5 +253,3 @@ function Courses() {
     </Box>
   );
 }
-
-export default Courses;

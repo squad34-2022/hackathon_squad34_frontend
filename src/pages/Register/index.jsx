@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../../context/Auth";
+import { ValidarEmail } from "../../utils/validations";
 import "./styles.css";
 
 function Copyright(props) {
@@ -47,6 +48,11 @@ export default function Register() {
       email: data.get("email"),
       password: data.get("password"),
     };
+
+    if (!ValidarEmail(user.email)) {
+      toast.error("E-mail Inválido!");
+      return;
+    }
 
     if (!user.name || !user.email || !user.password) {
       toast.error("Preencha Todos os campos!");

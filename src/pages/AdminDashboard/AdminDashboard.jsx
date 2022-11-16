@@ -11,8 +11,7 @@ import {
 } from "@mui/material";
 import React, { useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import AccordionDetailsCourses from "../../components/AccordionDetailsAdminDash/AccordionDetailsCourses";
-import AccordionDetailsTrails from "../../components/AccordionDetailsAdminDash/AccordionDetailsTrails";
+
 import ModalCursos from "../../components/ModalCursos/ModalCursos";
 import ModalTrilhas from "../../components/ModalTrilhas/ModalTrilhas";
 import Navbar from "../../components/Navbar/Navbar";
